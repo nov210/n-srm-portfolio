@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko" class="ds-html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N-SRM Design System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/supplier_list.css">
+<link rel="stylesheet" href="../css/supplier_detail.css">
+<link rel="stylesheet" href="../css/portfolio.css">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body class="ds-body">
+
+<div class="ds-app">
+  <aside class="ds-sidebar">
+    <div class="ds-brand">
+      <div class="ds-brand-tag">N-SRM</div>
+      <div class="ds-brand-title">Design System</div>
+      <p class="ds-brand-sub">퍼블리싱 UI 기준 컴포넌트·토큰 라이브 프리뷰</p>
+    </div>
+    <a href="../index.html" class="ds-back"><i class="fa-solid fa-arrow-left"></i> 서비스 홈</a>
+    <p class="ds-nav-group">Foundation</p>
+    <ul class="ds-nav">
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#layout">Layout</a></li>
+    </ul>
+    <p class="ds-nav-group">Components</p>
+    <ul class="ds-nav">
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#badges">Badges &amp; Chips</a></li>
+      <li><a href="#tabs">Tabs</a></li>
+      <li><a href="#modal">Modal</a></li>
+      <li><a href="#navigation">Navigation</a></li>
+    </ul>
+  </aside>
+
+  <main class="ds-main">
+    <header class="ds-hero">
+      <h1>N-SRM Design System</h1>
+      <p>index · 협력사 조회/상세/수정 · 로그인 페이지에서 사용 중인 실제 클래스와 스타일을 그대로 보여줍니다. 코드 설명이 아니라 화면에서 디자인을 확인하는 문서형 프리뷰입니다.</p>
+    </header>
+
+    <!-- Colors -->
+    <section class="ds-section" id="colors">
+      <div class="ds-section-head">
+        <h2>Colors</h2>
+        <p>브랜드 네이비, 배경, 텍스트, 시맨틱 컬러 팔레트</p>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">Brand &amp; Primary</div>
+        <div class="ds-palette">
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#19289A"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Navy</div><div class="ds-swatch-hex">#19289A</div><div class="ds-swatch-token">--navy · Primary</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#1C2894"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Header Navy</div><div class="ds-swatch-hex">#1C2894</div><div class="ds-swatch-token">top-header</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#0f1a6e"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Navy Deep</div><div class="ds-swatch-hex">#0f1a6e</div><div class="ds-swatch-token">--navy-deep · Hover</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#e8edf8"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Blue Soft</div><div class="ds-swatch-hex">#e8edf8</div><div class="ds-swatch-token">--blue-soft</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#adfaff"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Highlight Cyan</div><div class="ds-swatch-hex">#adfaff</div><div class="ds-swatch-token">가이드 하이라이트</div></div></div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">Background &amp; Surface</div>
+        <div class="ds-palette">
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#f4f6fb"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Page BG</div><div class="ds-swatch-hex">#f4f6fb</div><div class="ds-swatch-token">--bg</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#F5F7FC"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Main BG</div><div class="ds-swatch-hex">#F5F7FC</div><div class="ds-swatch-token">대시보드</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#edf0f9"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Sub Page BG</div><div class="ds-swatch-hex">#edf0f9</div><div class="ds-swatch-token">협력사 페이지</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#f5f6fb;border:1px solid #e2e6f0"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Panel Gray</div><div class="ds-swatch-hex">#f5f6fb</div><div class="ds-swatch-token">fc-head · toolbar</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#fff;border:1px solid #e2e6f0"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">White</div><div class="ds-swatch-hex">#ffffff</div><div class="ds-swatch-token">--white · Card</div></div></div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">Text &amp; Border</div>
+        <div class="ds-palette">
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#1a1e2e"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Text 1</div><div class="ds-swatch-hex">#1a1e2e</div><div class="ds-swatch-token">--t1</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#111827"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Text Strong</div><div class="ds-swatch-hex">#111827</div><div class="ds-swatch-token">제목 · 테이블</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#5a6280"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Text 2</div><div class="ds-swatch-hex">#5a6280</div><div class="ds-swatch-token">--t2 · GNB</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#9aa0b4"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Text 3</div><div class="ds-swatch-hex">#9aa0b4</div><div class="ds-swatch-token">--t3 · 캡션</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#e2e6f0"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Border</div><div class="ds-swatch-hex">#e2e6f0</div><div class="ds-swatch-token">--border</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#dde1ee"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Border Alt</div><div class="ds-swatch-hex">#dde1ee</div><div class="ds-swatch-token">서브 페이지</div></div></div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">Semantic</div>
+        <div class="ds-palette">
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#dc2626"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Red</div><div class="ds-swatch-hex">#dc2626</div><div class="ds-swatch-token">--red · 위험</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#d97706"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Amber</div><div class="ds-swatch-hex">#d97706</div><div class="ds-swatch-token">--amber · 경고</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#16a34a"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Green</div><div class="ds-swatch-hex">#16a34a</div><div class="ds-swatch-token">--green · 정상</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#7c3aed"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Purple</div><div class="ds-swatch-hex">#7c3aed</div><div class="ds-swatch-token">--purple · KPI</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#fef2f2;border:1px solid #fca5a5"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Red BG</div><div class="ds-swatch-hex">#fef2f2</div><div class="ds-swatch-token">--red-bg</div></div></div>
+          <div class="ds-swatch"><div class="ds-swatch-color" style="background:#dcfce7;border:1px solid #86efac"></div><div class="ds-swatch-meta"><div class="ds-swatch-name">Green BG</div><div class="ds-swatch-hex">#dcfce7</div><div class="ds-swatch-token">status-normal</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="ds-section" id="typography">
+      <div class="ds-section-head">
+        <h2>Typography</h2>
+        <p>폰트: Pretendard · 기본 13px · 제목·본문·캡션 위계</p>
+      </div>
+      <div class="ds-panel">
+        <div class="ds-type-sample">
+          <h1 class="ph-title" style="font-size:22px;font-weight:800;color:#111827;letter-spacing:-0.025em">협력사 정보</h1>
+          <div class="ds-type-meta"><span>Page Title · .ph-title</span><span>22px / 800</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <div class="greet-title">김철수님, 행복한 하루되세요.</div>
+          <div class="ds-type-meta"><span>Greeting · .greet-title</span><span>22px / 700</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <div class="detail-company-name">SAMSUNG ELECTRONICS EGYPT S.A.E</div>
+          <div class="ds-type-meta"><span>Detail Title · .detail-company-name</span><span>19px / 800</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <p style="font-size:14px;font-weight:600;color:#1a1e2e">본문 강조 — KPI 라벨, 섹션 소제목 (14–15px / 600–700)</p>
+          <div class="ds-type-meta"><span>.kpi-title · .fx-title</span><span>14–15px</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <p style="font-size:13px;color:#1a1e2e;line-height:1.6">본문 기본 — 테이블, 폼, 메타 정보. line-height 1.5~1.6 (13px / 400–500)</p>
+          <div class="ds-type-meta"><span>body · .tbl td</span><span>13px</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <span class="fc-label">검색 조건 라벨</span>
+          <div class="ds-type-meta"><span>Label · .fc-label</span><span>12px / 600 · uppercase</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <span class="ph-sub">Supplier Information</span>
+          <div class="ds-type-meta"><span>Caption · .ph-sub · .detail-meta</span><span>12px · #9aa0b4</span></div>
+        </div>
+        <div class="ds-type-sample">
+          <span style="font-size:11px;color:#9aa0b4;letter-spacing:0.06em;text-transform:uppercase">TABLE HEADER · CAPTION</span>
+          <div class="ds-type-meta"><span>.tbl th · .sc-label</span><span>11px</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout -->
+    <section class="ds-section" id="layout">
+      <div class="ds-section-head">
+        <h2>Layout</h2>
+        <p>페이지 최소/최대 폭, 본문 패딩, 그리드 구조</p>
+      </div>
+      <div class="ds-spec-grid ds-block">
+        <div class="ds-spec-item"><div class="ds-spec-val">1280px</div><div class="ds-spec-lbl">최소 뷰포트 (min-width)</div></div>
+        <div class="ds-spec-item"><div class="ds-spec-val">1760px</div><div class="ds-spec-lbl">본문 max-width (.body)</div></div>
+        <div class="ds-spec-item"><div class="ds-spec-val">1920px</div><div class="ds-spec-lbl">헤더 inner max-width</div></div>
+      </div>
+      <div class="ds-panel">
+        <div class="ds-block-title">대시보드 2컬럼 (.body)</div>
+        <div class="ds-layout-demo">
+          <div class="ds-layout-inner" style="display:grid;grid-template-columns:1fr 340px;gap:12px;text-align:left;padding:20px">
+            <div style="padding:24px;background:#f4f6fb;border-radius:6px">col-main · minmax(0, 1fr)</div>
+            <div style="padding:24px;background:#F5F7FB;border-radius:6px;width:340px">col-side · 340px</div>
+          </div>
+        </div>
+        <div class="ds-block-title" style="margin-top:20px">서브 페이지 단일 컬럼</div>
+        <div class="ds-layout-demo">
+          <div class="ds-layout-inner">padding 12px 28px 40px · gap 8–14px · 배경 #edf0f9</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section class="ds-section" id="buttons">
+      <div class="ds-section-head">
+        <h2>Buttons</h2>
+        <p>Primary · Secondary · Disabled · Hover 상태 (실제 클래스)</p>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">페이지 액션 (.ph-btn)</div>
+        <div class="ds-panel">
+          <div class="ds-row ds-gap-lg">
+            <div class="ds-btn-demo"><span class="ds-btn-label">Default</span><button type="button" class="ph-btn"><i class="fa-solid fa-download"></i> Excel</button></div>
+            <div class="ds-btn-demo"><span class="ds-btn-label">Primary</span><button type="button" class="ph-btn primary"><i class="fa-solid fa-plus"></i> 신규 등록</button></div>
+            <div class="ds-btn-demo is-hover-demo"><span class="ds-btn-label">Primary Hover</span><button type="button" class="ph-btn primary"><i class="fa-solid fa-plus"></i> 신규 등록</button></div>
+            <div class="ds-btn-demo"><span class="ds-btn-label">Disabled</span><button type="button" class="ph-btn primary" disabled><i class="fa-solid fa-plus"></i> 신규 등록</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">상세/수정 액션 (.det-btn)</div>
+        <div class="ds-panel">
+          <div class="ds-row ds-gap-lg">
+            <div class="ds-btn-demo"><span class="ds-btn-label">Secondary</span><button type="button" class="det-btn"><i class="fa-solid fa-download"></i> Excel</button></div>
+            <div class="ds-btn-demo"><span class="ds-btn-label">Primary</span><button type="button" class="det-btn primary"><i class="fa-solid fa-pen"></i> 수정</button></div>
+            <div class="ds-btn-demo is-hover-demo"><span class="ds-btn-label">Primary Hover</span><button type="button" class="det-btn primary"><i class="fa-solid fa-pen"></i> 수정</button></div>
+            <div class="ds-btn-demo"><span class="ds-btn-label">Disabled</span><button type="button" class="det-btn primary" disabled><i class="fa-solid fa-check"></i> 저장</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">필터 푸터 (.f-reset · .f-search)</div>
+        <div class="ds-panel">
+          <div class="fc-foot" style="border-radius:8px;border:1px solid #dde1ee">
+            <button type="button" class="f-reset"><i class="fa-solid fa-rotate-left"></i> 초기화</button>
+            <button type="button" class="f-search"><i class="fa-solid fa-magnifying-glass"></i> 검색</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section class="ds-section" id="forms">
+      <div class="ds-section-head">
+        <h2>Forms</h2>
+        <p>입력창, 셀렉트, 체크박스 — 협력사 조회 필터 기준</p>
+      </div>
+      <div class="ds-panel">
+        <div class="ds-form-grid">
+          <div class="fc-row">
+            <label class="fc-label">텍스트 입력</label>
+            <input type="text" class="f-input" placeholder="협력사명 입력">
+          </div>
+          <div class="fc-row">
+            <label class="fc-label">포커스</label>
+            <input type="text" class="f-input" value="SAMSUNG" style="border-color:#19289A;box-shadow:0 0 0 2px rgba(25,40,154,0.1)">
+          </div>
+          <div class="fc-row">
+            <label class="fc-label">읽기 전용</label>
+            <input type="text" class="f-input readonly" value="712B-A1" readonly disabled>
+          </div>
+          <div class="fc-row">
+            <label class="fc-label">셀렉트</label>
+            <select class="fs">
+              <option>전체</option>
+              <option>제조협력사</option>
+              <option>서비스협력사</option>
+            </select>
+          </div>
+          <div class="fc-row">
+            <label class="fc-label">비활성</label>
+            <input type="text" class="f-input" placeholder="disabled" disabled>
+          </div>
+          <div class="fc-row fc-row-chk">
+            <label class="fc-label">&nbsp;</label>
+            <div class="f-chk-row">
+              <input class="f-chk" type="checkbox" id="ds-chk1" checked>
+              <label class="f-chk-lbl" for="ds-chk1">즐겨찾기만 보기</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="ds-section" id="cards">
+      <div class="ds-section-head">
+        <h2>Cards</h2>
+        <p>KPI · Summary · 필터 카드 — 실제 마크업 샘플</p>
+      </div>
+
+      <div class="ds-block ds-card-preview">
+        <div class="ds-block-title">KPI Card (.kpi-card)</div>
+        <div class="kpi-grid" style="grid-template-columns:1fr;max-width:280px">
+          <div class="kpi-card kpi-amber">
+            <div class="kpi-head">
+              <div class="kpi-title-wrap">
+                <div class="kpi-title kpi-color-amber">승인 대기</div>
+              </div>
+            </div>
+            <div class="kpi-num-row">
+              <span class="kpi-num kpi-color-amber">12</span>
+              <span class="kpi-unit">건</span>
+            </div>
+            <hr class="kpi-divider">
+            <div class="kpi-sub">
+              <span class="kpi-sub-item">신규공급사 <span class="kpi-sub-num">3</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block ds-card-preview">
+        <div class="ds-block-title">Summary Card (.summary-card)</div>
+        <div class="summary-row" style="grid-template-columns:repeat(2,1fr);max-width:560px">
+          <div class="summary-card">
+            <div class="sc-label"><i class="fa-solid fa-circle-check"></i> 거래 상태</div>
+            <div class="sc-main"><div class="sc-key good">정상</div></div>
+            <div class="sc-divider"></div>
+            <div class="sc-sub">
+              <div class="sc-sub-item"><span class="sc-sub-label">Block</span><span class="sc-sub-val">N</span></div>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="sc-label"><i class="fa-solid fa-chart-line"></i> Current D/T</div>
+            <div class="sc-main"><div class="sc-key navy">A+</div></div>
+            <div class="sc-divider"></div>
+            <div class="sc-sub">
+              <div class="sc-sub-item"><span class="sc-sub-label">G/T</span><span class="sc-sub-val good2">Grade 1</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block ds-card-preview">
+        <div class="ds-block-title">Filter Card (.fc)</div>
+        <div class="fc" style="max-width:640px">
+          <div class="fc-head">
+            <div class="fc-title"><i class="fa-solid fa-filter"></i> 검색 조건</div>
+            <button type="button" class="fc-toggle"><i class="fa-solid fa-chevron-up"></i> 접기</button>
+          </div>
+          <div class="fc-body">
+            <div class="fc-grid" style="grid-template-columns:1fr 1fr">
+              <div class="fc-row">
+                <div class="fc-label">협력사명</div>
+                <input type="text" class="f-input" placeholder="검색어 입력">
+              </div>
+              <div class="fc-row">
+                <div class="fc-label">국가</div>
+                <select class="fs"><option>전체</option><option>대한민국</option></select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <div class="ds-block-title">Side Card (.side-card-white)</div>
+        <div class="side-card-white" style="max-width:320px;border:1px solid #e2e6f0">
+          <div class="content-side-heading">오늘의 컨텐츠</div>
+          <p style="font-size:13px;color:#5a6280;margin-top:8px;line-height:1.5">대시보드 우측 사이드 영역 카드 스타일</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Badges -->
+    <section class="ds-section" id="badges">
+      <div class="ds-section-head">
+        <h2>Badges &amp; Chips</h2>
+        <p>상태 배지, 칩, 테이블 인라인 배지</p>
+      </div>
+      <div class="ds-panel ds-stack">
+        <div>
+          <div class="ds-block-title">Status (.status-b)</div>
+          <div class="ds-badge-row">
+            <span class="status-b status-reg">정규</span>
+            <span class="status-b status-normal"><i class="fa-solid fa-circle-check" style="font-size:10px"></i> Block N</span>
+            <span class="status-b status-block"><i class="fa-solid fa-ban" style="font-size:10px"></i> Block Y</span>
+            <span class="status-b status-size">대기업</span>
+          </div>
+        </div>
+        <div>
+          <div class="ds-block-title">Chips (.chip)</div>
+          <div class="chip-group ds-badge-row">
+            <span class="chip chip-blue">제조협력사</span>
+            <span class="chip chip-green"><i class="fa-solid fa-circle-check" style="font-size:10px"></i> N 정상</span>
+            <span class="chip chip-amber">검토중</span>
+            <span class="chip chip-red">지연</span>
+            <span class="chip chip-gray">미분류</span>
+          </div>
+        </div>
+        <div>
+          <div class="ds-block-title">Table badges</div>
+          <div class="ds-badge-row">
+            <span class="reg-b reg-r">정규</span>
+            <span class="reg-b reg-i">비정규</span>
+            <span class="sz-b sz-l">대기업</span>
+            <span class="sz-b sz-m">중소</span>
+            <span class="td-tag">제조협력사</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="ds-section" id="tabs">
+      <div class="ds-section-head">
+        <h2>Tabs</h2>
+        <p>협력사 상세 탭 네비게이션 (.tab-nav)</p>
+      </div>
+      <div class="ds-panel ds-tab-demo">
+        <div class="tab-nav">
+          <div class="tab-nav-list">
+            <div class="tab-nav-item on" data-ds-tab="tab1"><i class="fa-solid fa-circle-info"></i> 기본 정보</div>
+            <div class="tab-nav-item" data-ds-tab="tab2"><i class="fa-solid fa-file-contract"></i> 계약 정보</div>
+            <div class="tab-nav-item" data-ds-tab="tab3"><i class="fa-solid fa-truck"></i> 납품 이력</div>
+          </div>
+          <div class="tab-content on" id="ds-tab1">기본 정보 탭 콘텐츠 영역 (.tab-content.on)</div>
+          <div class="tab-content" id="ds-tab2">계약 정보 탭 콘텐츠</div>
+          <div class="tab-content" id="ds-tab3">납품 이력 탭 콘텐츠</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <section class="ds-section" id="modal">
+      <div class="ds-section-head">
+        <h2>Modal</h2>
+        <p>팝업 오버레이 · 패널 (.pop-overlay · .pop-panel)</p>
+      </div>
+      <div class="ds-modal-stage" id="dsModalStage">
+        <button type="button" class="det-btn primary ds-modal-trigger" id="dsModalOpen"><i class="fa-solid fa-window-maximize"></i> 모달 미리보기 열기</button>
+        <div class="pop-overlay" id="dsModal">
+          <div class="pop-panel" role="dialog" aria-labelledby="dsModalTitle">
+            <div class="pop-head">
+              <div class="pop-head-left">
+                <div class="pop-eyebrow">Portfolio Demo</div>
+                <div class="pop-title" id="dsModalTitle">오늘 마감 업무</div>
+              </div>
+              <button type="button" class="pop-close" id="dsModalClose" aria-label="닫기">×</button>
+            </div>
+            <div class="pop-body">
+              <p style="font-size:13px;color:#5a6280;line-height:1.6;margin-bottom:12px">실제 서비스에서는 <code style="font-size:12px;background:#f4f6fb;padding:2px 6px;border-radius:4px">.pop-overlay.open</code> 클래스로 표시됩니다.</p>
+              <ul style="font-size:13px;color:#1a1e2e;line-height:1.8;padding-left:18px">
+                <li>배경 rgba(10,13,40,0.48) + blur</li>
+                <li>패널 border-radius 16px</li>
+                <li>pop-in 애니메이션 0.28s</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="ds-section" id="navigation">
+      <div class="ds-section-head">
+        <h2>Navigation</h2>
+        <p>Top Header · GNB · Sub Menu (header.html 구조)</p>
+      </div>
+      <div class="ds-header-preview">
+        <header>
+          <div class="top-header">
+            <div class="header-inner">
+              <div class="logo"><a href="../index.html">N-SRM</a></div>
+              <div class="utilMenu">
+                <button type="button" class="global-search">
+                  <span class="global-search-inner">
+                    <span class="global-search-left">
+                      <img src="../images/icon-search.svg" alt="" class="global-search__icon">
+                      <span class="global-search-label">통합검색</span>
+                    </span>
+                    <img src="../images/icon-chevron-down.svg" alt="" class="global-search-arrow">
+                  </span>
+                </button>
+                <span class="top-util-user">김철수 책임</span>
+                <span class="top-util-select">반도체(DS)사업부 <img src="../images/icon-chevron-down.svg" alt=""></span>
+              </div>
+            </div>
+          </div>
+          <div class="main-wrap">
+            <nav class="main" aria-label="메인 메뉴">
+              <span class="top-menu-icon"><img src="../images/icon-menu.svg" alt=""></span>
+              <ul class="main-list">
+                <li class="M-Menu"><a href="#none">My Menu</a></li>
+                <li class="M-Menu2"><a href="#none">Cost Management</a></li>
+                <li class="M-Menu3"><a href="../nsrm_supplier_list.html">Supplier Management</a></li>
+                <li class="M-Menu2"><a href="#none">Purchase Management</a></li>
+              </ul>
+            </nav>
+          </div>
+          <nav class="sub-menu" aria-label="서브 메뉴">
+            <span class="sub-a"><img src="../images/icon-chevron-right.svg" alt=""></span>
+            <span class="sub-m-h">Home</span>
+            <span class="sub-m-p">Supplier List</span>
+            <span class="sub-m-p">Supplier Detail</span>
+          </nav>
+        </header>
+      </div>
+    </section>
+
+    <footer style="padding-top:24px;border-top:1px solid #e2e6f0;font-size:12px;color:#9aa0b4">
+      N-SRM Design System · Extracted from published HTML/CSS · <a href="../index.html" style="color:#19289a;font-weight:600">서비스 페이지로</a>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var navLinks = document.querySelectorAll('.ds-nav a');
+  var sections = [];
+  var scrollOffset = 24;
+
+  navLinks.forEach(function (link) {
+    var id = link.getAttribute('href');
+    if (id && id.charAt(0) === '#') {
+      var el = document.querySelector(id);
+      if (el) sections.push({ link: link, el: el });
+    }
+    link.addEventListener('click', function (e) {
+      var href = link.getAttribute('href');
+      var target = href ? document.querySelector(href) : null;
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+      link.classList.add('is-active');
+    });
+  });
+
+  function updateActiveNav() {
+    var marker = window.scrollY + scrollOffset + 80;
+    var current = sections[0];
+    sections.forEach(function (item) {
+      var top = item.el.getBoundingClientRect().top + window.scrollY;
+      if (top <= marker) current = item;
+    });
+    navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+    if (current) current.link.classList.add('is-active');
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+
+  document.querySelectorAll('[data-ds-tab]').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = tab.getAttribute('data-ds-tab');
+      document.querySelectorAll('[data-ds-tab]').forEach(function (t) { t.classList.remove('on'); });
+      document.querySelectorAll('.ds-tab-demo .tab-content').forEach(function (c) { c.classList.remove('on'); });
+      tab.classList.add('on');
+      var panel = document.getElementById('ds-tab' + id.replace('tab', ''));
+      if (panel) panel.classList.add('on');
+    });
+  });
+
+  var modal = document.getElementById('dsModal');
+  var openBtn = document.getElementById('dsModalOpen');
+  var closeBtn = document.getElementById('dsModalClose');
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', function () { modal.classList.add('open'); });
+  }
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', function () { modal.classList.remove('open'); });
+  }
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+  }
+})();
+</script>
+</body>
+</html>

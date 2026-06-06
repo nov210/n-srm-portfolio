@@ -1,0 +1,16 @@
+@import url(reset.css);
+@import url(font.css);
+@import url(header.css);
+@import url(main.css);
+@import url(supplier_detail.css);
+@import url(supplier_list.css);
+
+
+
+body {
+  font-family: 'Pretendard', sans-serif;
+}
+
+#wrap {
+  width: 100%;
+}

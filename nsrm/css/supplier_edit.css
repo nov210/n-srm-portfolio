@@ -1,0 +1,375 @@
+/* ============================================================
+   supplier_edit.css - 협력사 정보 수정 페이지 스타일
+   detail.css + list.css 스타일 정확히 따름
+   ============================================================ */
+
+html,
+body {
+	min-width: 1280px;
+	background-color: #edf0f9;
+}
+
+/*---------- 본문 레이아웃 (detail.css 동일) ----------*/
+.body {
+	width: 100%;
+	max-width: 1760px;
+	margin: 0 auto;
+	padding: 12px 28px 40px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/*---------- 페이지 헤더 (detail.css 동일) ----------*/
+.detail-header {
+	border-radius: 4px;
+	padding: 14px 0;
+}
+
+.detail-header-top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.detail-header-left { 
+	display: flex; 
+	flex-direction: column; 
+	gap: 7px; 
+}
+
+.detail-title-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.detail-company-name {
+	font-size: 19px;
+	font-weight: 800;
+	color: #111827;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+.detail-code {
+	font-size: 12px;
+	color: #9aa0b4;
+	font-weight: 600;
+	padding: 2px 7px;
+	background: #f0f2f8;
+	border-radius: 3px;
+}
+
+.status-b {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 3px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 700;
+}
+.status-normal { background: #dcfce7; color: #15803d; }
+.status-block  { background: #fef2f2; color: #dc2626; border: 1px solid #fca5a5; }
+.status-reg    { background: #d8e0ef; color: #19289A; }
+.status-size   { background: #f0f2f8; color: #4b5270; }
+
+.detail-meta {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+
+.detail-meta-item {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 12px;
+	color: #4b5270;
+}
+
+.detail-meta-item i { 
+	color: #9aa0b4; 
+	font-size: 11px; 
+}
+
+.detail-meta-sep { 
+	width: 1px; 
+	height: 12px; 
+	background: #dde1ee; 
+}
+
+.detail-actions { 
+	display: flex; 
+	align-items: center; 
+	gap: 5px; 
+	flex-shrink: 0; 
+	padding-top: 20px;
+	overflow: visible;
+}
+
+.detail-edit-wrap {
+	display: inline-flex;
+	overflow: visible;
+}
+
+.detail-edit-wrap .hs-page {
+	top: -20px;
+	right: 16px;
+	left: auto;
+	pointer-events: none;
+}
+
+.detail-edit-wrap .hs-tip {
+	pointer-events: none;
+}
+
+.det-btn {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	padding: 6px 12px;
+	background: #fff;
+	border: 1px solid #dde1ee;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #4b5270;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.det-btn i { 
+	font-size: 11px; 
+}
+
+.det-btn:hover { 
+	background: #f0f2f8; 
+}
+
+.det-btn.primary { 
+	background: #19289A; 
+	color: #fff; 
+	border-color: #19289A; 
+	font-weight: 600; 
+}
+
+.det-btn.primary:hover { 
+	background: #0f1a6e; 
+}
+
+
+/*---------- 폼 컨테이너 ----------*/
+.edit-form {
+	background: #fff;
+	border: 1px solid #dde1ee;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.form-section {
+	border-bottom: 1px solid #dde1ee;
+}
+
+.form-section:last-child { 
+	border-bottom: none; 
+}
+
+.form-section-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 9px 16px;
+	background: #f5f6fb;
+	border-bottom: 1px solid #dde1ee;
+	font-size: 13px;
+	font-weight: 700;
+	color: #111827;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.form-section-body {
+	padding: 14px 16px 16px;
+}
+
+/*---------- 폼 그리드 ----------*/
+.form-grid-2 { 
+	display: grid; 
+	grid-template-columns: 1fr 1fr; 
+	gap: 10px 20px; 
+}
+
+.form-col { 
+	display: flex; 
+	flex-direction: column; 
+	gap: 14px; 
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.form-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #4b5270;
+}
+
+.req {
+	color: #dc2626;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+/*---------- 입력 필드 (list.css 스타일) ----------*/
+.f-input {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #dde1ee;
+	border-radius: 2px;
+	padding: 0 8px;
+	font-size: 13px;
+	font-weight: 400;
+	font-family: inherit;
+	color: #111827;
+	background: #fff;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.f-input:focus { 
+	border-color: #19289A; 
+	box-shadow: 0 0 0 2px rgba(25,40,154,0.1); 
+}
+
+.f-input::placeholder { 
+	color: #c2c6d8; 
+	font-size: 12px; 
+}
+
+.f-input.readonly,
+.f-input:disabled {
+	background: #f0f2f8;
+	color: #9aa0b4;
+	cursor: not-allowed;
+	border-color: #e5e7f0;
+}
+
+/*---------- 셀렉트 필드 (list.css 스타일) ----------*/
+.fs {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #dde1ee;
+	border-radius: 2px;
+	padding: 0 22px 0 8px;
+	font-size: 13px;
+	font-weight: 400;
+	font-family: inherit;
+	color: #111827;
+	background: #fff;
+	outline: none;
+	cursor: pointer;
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%238b91a8' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 7px center;
+	box-sizing: border-box;
+}
+
+.fs:focus { 
+	border-color: #19289A; 
+	box-shadow: 0 0 0 2px rgba(25,40,154,0.1); 
+}
+
+/*---------- 폼 도움말 ----------*/
+.form-help {
+	font-size: 12px;
+	color: #9aa0b4;
+	font-weight: 400;
+	margin-top: 2px;
+}
+
+/*---------- 라디오/체크박스 (list.css 스타일) ----------*/
+.f-chk-row { 
+	display: flex; 
+	align-items: center; 
+	gap: 5px; 
+	height: 30px; 
+}
+
+.f-chk-row input[type="radio"] {
+	width: 13px; 
+	height: 13px; 
+	accent-color: #19289A; 
+	cursor: pointer;
+}
+
+.f-chk-lbl { 
+	font-size: 12px; 
+	color: #4b5270; 
+	cursor: pointer; 
+	font-weight: 400;
+}
+
+.f-chk-row input[type="radio"]:checked + .f-chk-lbl {
+	color: #19289A;
+	font-weight: 600;
+}
+
+/*---------- 토스트 메시지 ----------*/
+.toast-container {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+.toast {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 9px 14px;
+	background: #fff;
+	border: 1px solid #dde1ee;
+	border-radius: 4px;
+	font-size: 13px;
+	font-weight: 500;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+	margin-bottom: 8px;
+	min-width: 280px;
+	pointer-events: auto;
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: all 0.24s ease;
+}
+
+.toast.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.toast.toast-success {
+	background: #f0fdf4;
+	border-color: #86efac;
+	color: #15803d;
+}
+
+.toast.toast-error {
+	background: #fef2f2;
+	border-color: #fca5a5;
+	color: #dc2626;
+}
+
+.toast.toast-info {
+	background: #eff6ff;
+	border-color: #93c5fd;
+	color: #0284c7;
+}

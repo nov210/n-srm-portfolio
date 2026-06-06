@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>N-SRM Demo — 1100 × 750 Frame</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --frame-w:1100px;
+  --frame-h:750px;
+  --bar-h:32px;
+  --inner-w:1280px;
+  --inner-h:750px;
+  /* height 기준: (750 - 32) / 750 = 0.957  |  width 기준: 1100 / 1280 = 0.859
+     → 작은 쪽(0.859)을 사용 */
+  --scale:0.859;
+  --bg:#d5dae6;
+  --shell-bg:#1e2338;
+  --accent:#5b7bfa;
+}
+
+html,body{
+  width:100%;min-height:100vh;
+  font-family:'Pretendard',-apple-system,sans-serif;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+}
+
+.shell{
+  width:var(--frame-w);height:var(--frame-h);
+  background:var(--shell-bg);border-radius:12px;
+  box-shadow:0 2px 0 rgba(255,255,255,.05) inset,
+             0 24px 80px rgba(16,20,44,.32),
+             0 0 0 1px rgba(0,0,0,.10);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+
+.bar{
+  height:var(--bar-h);min-height:var(--bar-h);
+  background:linear-gradient(180deg,#272d48 0%,#222843 100%);
+  display:flex;align-items:center;padding:0 12px;gap:8px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  user-select:none;-webkit-user-select:none;
+}
+.dots{display:flex;gap:6px;flex-shrink:0}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+
+.addr{
+  flex:1;max-width:400px;height:22px;margin:0 auto;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.07);border-radius:5px;
+  display:flex;align-items:center;padding:0 9px;gap:5px;
+}
+.addr svg{width:9px;height:9px;color:rgba(255,255,255,.35);flex-shrink:0}
+.addr span{font-size:11px;color:rgba(255,255,255,.38);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.ctrls{display:flex;gap:5px;flex-shrink:0}
+.cb{
+  width:26px;height:22px;border:none;border-radius:4px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.42);
+  font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;
+}
+.cb:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.cb.on{color:var(--accent)}
+
+.vp{
+  flex:1;width:var(--frame-w);overflow:hidden;
+  background:var(--bg);position:relative;
+}
+.vp iframe{
+  width:var(--inner-w);height:var(--inner-h);border:none;
+  transform:scale(var(--scale));transform-origin:top left;
+  position:absolute;top:0;left:0;
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="bar">
+    <div class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+    <div class="addr">
+      <svg viewBox="0 0 10 10" fill="none"><rect x="1.5" y="4.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M3 4.5V3a2 2 0 014 0v1.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+      <span>nsrm.samsung.com</span>
+    </div>
+    <div class="ctrls">
+      <button class="cb" id="bp" title="일시정지/재생">❚❚</button>
+      <button class="cb" id="br" title="처음부터">↻</button>
+    </div>
+  </div>
+  <div class="vp">
+    <iframe id="f" src="index.html?embed=1"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var f=document.getElementById('f'),bp=document.getElementById('bp'),br=document.getElementById('br'),p=false;
+  function cmd(c){try{f.contentWindow.postMessage({type:'nsrm-demo',cmd:c},'*')}catch(e){}}
+  bp.addEventListener('click',function(){p=!p;cmd(p?'pause':'play');bp.textContent=p?'▶':'❚❚';bp.classList.toggle('on',p)});
+  br.addEventListener('click',function(){p=false;bp.textContent='❚❚';bp.classList.remove('on');cmd('restart')});
+})();
+</script>
+</body>
+</html>

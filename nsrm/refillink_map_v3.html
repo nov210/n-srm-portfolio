@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>리필링크 — 지도 탐색</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root {
+  --deep: #1A3C2C;
+  --accent: #52B788;
+  --gold: #D4A853;
+  --cream: #FAF8F2;
+  --black: #111;
+  --muted: #767676;
+  --border: #E8E5DE;
+  --red: #E53E3E;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+body {
+  background: #1a1a18;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 60px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.phone {
+  width: 390px;
+  background: var(--cream);
+  border-radius: 52px;
+  overflow: hidden;
+  box-shadow: 0 0 0 10px #111, 0 50px 120px rgba(0,0,0,0.7);
+}
+
+.sbar {
+  background: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px 8px;
+  position: relative; z-index: 1000;
+}
+.sbar-t { color: var(--black); font-size: 15px; font-weight: 700; }
+.sbar-i { display: flex; gap: 5px; }
+
+/* 지도 */
+.map-wrap { position: relative; height: 480px; overflow: hidden; }
+#map { width: 100%; height: 100%; z-index: 1; }
+
+.map-ui { position: absolute; inset: 0; pointer-events: none; z-index: 500; }
+.map-ui > * { pointer-events: all; }
+
+/* 상단 — 위치 + 검색만 */
+.map-top {
+  position: absolute; top: 14px; left: 16px; right: 16px;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+.map-loc {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; padding: 10px 16px; border-radius: 100px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.12);
+  flex: 1;
+}
+.map-loc svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 2.2; flex-shrink: 0; }
+.map-loc-txt { font-size: 14px; font-weight: 700; color: var(--black); flex: 1; }
+.map-loc-chev { width: 11px; height: 11px; stroke: var(--muted); fill: none; stroke-width: 2.5; }
+.map-search {
+  width: 44px; height: 44px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.12); flex-shrink: 0;
+}
+.map-search svg { width: 19px; height: 19px; stroke: var(--black); fill: none; stroke-width: 1.8; }
+
+/* 현위치 버튼만 지도 위 */
+.myloc-btn {
+  position: absolute; bottom: 16px; right: 16px;
+  width: 44px; height: 44px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.14);
+}
+.myloc-btn svg { width: 19px; height: 19px; stroke: var(--deep); fill: none; stroke-width: 2; }
+
+/* 지도 아래 패널 */
+.panel { background: var(--cream); }
+
+/* 필터 행: 카테고리 + 퇴근길 */
+.filter-row {
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 8px;
+  overflow-x: auto;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.filter-row::-webkit-scrollbar { display: none; }
+.fchip {
+  flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: var(--black);
+  background: var(--cream); border: 1px solid var(--border);
+  white-space: nowrap; letter-spacing: -0.2px;
+}
+.fchip.on { background: var(--deep); color: #fff; border-color: var(--deep); }
+.fchip-emoji { font-size: 15px; }
+
+.route-chip {
+  flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 100px;
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  background: var(--cream); border: 1px solid var(--accent);
+  white-space: nowrap; margin-left: auto;
+}
+.route-chip svg { width: 13px; height: 13px; stroke: var(--accent); fill: none; stroke-width: 2.2; }
+
+/* 섹션 헤더 */
+.sec-hd {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px 10px;
+}
+.sec-tt { font-size: 17px; font-weight: 900; color: var(--black); letter-spacing: -0.3px; }
+.sec-cnt { font-size: 12px; font-weight: 700; color: var(--accent); background: var(--cream); padding: 4px 10px; border-radius: 100px; }
+
+/* 딜 카드 */
+.deal {
+  margin: 0 20px 10px; background: #fff; border-radius: 14px;
+  border: 1px solid var(--border); overflow: hidden;
+  display: flex; height: 112px;
+}
+.deal-thumb { width: 112px; flex-shrink: 0; position: relative; overflow: hidden; }
+.deal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.d-off {
+  position: absolute; top: 8px; left: 8px;
+  background: var(--deep); color: #fff;
+  font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; z-index: 2;
+}
+.deal-info {
+  flex: 1; padding: 12px 14px 10px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.d-store { font-size: 11px; color: #bbb; }
+.d-name {
+  font-size: 13px; font-weight: 700; color: var(--black);
+  letter-spacing: -0.3px; line-height: 1.3; margin-top: 3px;
+  overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.d-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+.d-price { font-size: 15px; font-weight: 900; color: var(--deep); letter-spacing: -0.5px; }
+.d-orig { font-size: 10px; color: #ccc; text-decoration: line-through; margin-left: 3px; }
+.d-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.d-timer { display: flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; color: var(--gold); }
+.d-timer svg { width: 11px; height: 11px; stroke: var(--gold); fill: none; stroke-width: 2.5; }
+.d-timer.red { color: var(--red); }
+.d-timer.red svg { stroke: var(--red); }
+.d-qty { font-size: 10px; color: var(--muted); }
+
+/* 탭바 */
+.tabbar {
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; padding: 8px 0 30px;
+}
+.ti { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+.ti svg { width: 21px; height: 21px; stroke: #C5C3BC; fill: none; stroke-width: 1.5; }
+.ti.on svg { stroke: var(--deep); stroke-width: 1.7; }
+.ti span { font-size: 9px; color: #C5C3BC; }
+.ti.on span { color: var(--deep); font-weight: 700; }
+
+.leaflet-control-zoom, .leaflet-control-attribution { display: none !important; }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="sbar">
+    <span class="sbar-t">9:41</span>
+    <div class="sbar-i">
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="#111"><rect x="0" y="4" width="3" height="8" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="0" width="3" height="12" rx="1"/></svg>
+      <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="22" height="10" rx="3" stroke="#111" stroke-width="1" fill="none"/><rect x="1.5" y="2.5" width="15" height="7" rx="2" fill="#111"/></svg>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="map-ui">
+      <div class="map-top">
+        <div class="map-loc">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="map-loc-txt">강남구 역삼동</span>
+          <svg class="map-loc-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="map-search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+      </div>
+      <div class="myloc-btn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="filter-row">
+      <div class="fchip on"><span class="fchip-emoji">🍽️</span> 전체</div>
+      <div class="fchip"><span class="fchip-emoji">🍱</span> 도시락</div>
+      <div class="fchip"><span class="fchip-emoji">☕</span> 카페</div>
+      <div class="fchip"><span class="fchip-emoji">🥐</span> 베이커리</div>
+      <div class="route-chip">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        퇴근길
+      </div>
+    </div>
+
+    <div class="sec-hd">
+      <span class="sec-tt">근처 마감딜</span>
+      <span class="sec-cnt">7개 진행중</span>
+    </div>
+
+    <div class="deal">
+      <div class="deal-thumb">
+        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&q=80" alt="">
+        <div class="d-off">50%</div>
+      </div>
+      <div class="deal-info">
+        <div>
+          <div class="d-store">김밥천국 역삼점 · 도보 3분</div>
+          <div class="d-name">참치마요 김밥 3줄 세트</div>
+        </div>
+        <div class="d-bottom">
+          <div><span class="d-price">4,500원</span><span class="d-orig">9,000원</span></div>
+          <div class="d-right">
+            <div class="d-timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>23분</div>
+            <span class="d-qty">잔여 6개</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-thumb">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80" alt="">
+        <div class="d-off">49%</div>
+      </div>
+      <div class="deal-info">
+        <div>
+          <div class="d-store">폴 베이커리 강남 · 도보 7분</div>
+          <div class="d-name">크루아상 + 아메리카노 세트</div>
+        </div>
+        <div class="d-bottom">
+          <div><span class="d-price">5,900원</span><span class="d-orig">11,500원</span></div>
+          <div class="d-right">
+            <div class="d-timer red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9분</div>
+            <span class="d-qty">잔여 4개</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-thumb">
+        <img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=300&q=80" alt="">
+        <div class="d-off">44%</div>
+      </div>
+      <div class="deal-info">
+        <div>
+          <div class="d-store">스시로 역삼점 · 도보 5분</div>
+          <div class="d-name">연어 초밥 10피스</div>
+        </div>
+        <div class="d-bottom">
+          <div><span class="d-price">8,900원</span><span class="d-orig">16,000원</span></div>
+          <div class="d-right">
+            <div class="d-timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>38분</div>
+            <span class="d-qty">잔여 2개</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:6px"></div>
+
+  <div class="tabbar">
+    <div class="ti">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>홈</span>
+    </div>
+    <div class="ti">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span>주문내역</span>
+    </div>
+    <div class="ti">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span>자주가요</span>
+    </div>
+    <div class="ti">
+      <svg viewBox="0 0 24 24" stroke-width="1.4"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><line x1="21" y1="14" x2="21" y2="17"/><line x1="14" y1="21" x2="17" y2="21"/></svg>
+      <span>QR주문</span>
+    </div>
+    <div class="ti">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>마이</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const center = [37.5005, 127.0365];
+const map = L.map('map', {
+  center, zoom: 16,
+  zoomControl: false, attributionControl: false,
+  dragging: true, scrollWheelZoom: false,
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  maxZoom: 19,
+}).addTo(map);
+
+function pin(label, type = 'default') {
+  const bg = type === 'red' ? '#E53E3E' : type === 'gold' ? '#D4A853' : '#1A3C2C';
+  return L.divIcon({
+    html: `<div style="
+      background:${bg};color:#fff;
+      font-family:'Noto Sans KR',sans-serif;
+      font-size:12px;font-weight:700;
+      padding:7px 14px;border-radius:10px;
+      white-space:nowrap;
+      box-shadow:0 4px 14px rgba(0,0,0,0.2);
+      letter-spacing:-0.2px;
+      position:relative;
+    ">${label}<div style="
+      position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+      border-left:6px solid transparent;
+      border-right:6px solid transparent;
+      border-top:7px solid ${bg};
+    "></div></div>`,
+    className: '', iconAnchor: [0, 40], iconSize: null,
+  });
+}
+
+const deals = [
+  { ll: [37.5015, 127.0355], l: '김밥천국 · 23분', t: 'default' },
+  { ll: [37.5022, 127.0385], l: '폴베이커리 · 9분', t: 'red' },
+  { ll: [37.4993, 127.0375], l: '스시로 · 38분',   t: 'default' },
+  { ll: [37.5010, 127.0395], l: '샐러디 · 52분',   t: 'gold' },
+  { ll: [37.4985, 127.0345], l: '블루보틀 · 10분', t: 'default' },
+];
+deals.forEach(d => L.marker(d.ll, { icon: pin(d.l, d.t) }).addTo(map));
+
+L.marker(center, {
+  icon: L.divIcon({
+    html: `<div style="position:relative;width:40px;height:40px">
+      <div style="position:absolute;inset:0;background:rgba(59,130,246,0.15);border-radius:50%"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+        width:14px;height:14px;background:#3B82F6;border-radius:50%;
+        border:3px solid #fff;box-shadow:0 2px 8px rgba(59,130,246,0.5)"></div>
+    </div>`,
+    className: '', iconAnchor: [20, 20], iconSize: [40, 40],
+  })
+}).addTo(map);
+
+L.polyline([
+  [37.4970, 127.0300], [37.4988, 127.0330],
+  [37.5005, 127.0365], [37.5020, 127.0380], [37.5035, 127.0400],
+], { color: '#1A3C2C', weight: 3, opacity: 0.6, dashArray: '8,6', lineCap: 'round' }).addTo(map);
+</script>
+</body>
+</html>

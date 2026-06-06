@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=1280">
+<title>N-SRM — 협력사 상세</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<!-- 공통 CSS: reset/body 기본값을 통일해서 모든 페이지 헤더 위치를 맞춤 -->
+<link rel="stylesheet" href="css/common.css?v=8">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/supplier_detail.css">
+<link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body data-gnb="supplier" data-sub-active="supplier_detail">
+
+<!-- 공통 헤더: header.html을 js/include.js로 불러옴 -->
+ 
+<div id="header"></div>
+
+<!-- ============================================================ -->
+<!-- BODY : 본문                                                  -->
+<!-- ============================================================ -->
+<div class="body">
+
+
+	<!-- 협력사 요약 헤더 -------------------------------------- -->
+	<div class="detail-header">
+		<div class="detail-header-top">
+
+			<div class="detail-header-left">
+
+				<!-- 협력사명 + 배지 -->
+				<div class="detail-title-row">
+					<div class="detail-company-name">SAMSUNG ELECTRONICS EGYPT S.A.E</div>
+					<span class="detail-code">712B-A1</span>
+					<span class="status-b status-reg">정규</span>
+					<span class="status-b status-normal"><i class="fa-solid fa-circle-check" style="font-size:10px;"></i> Block N</span>
+					<span class="status-b status-size">대기업</span>
+				</div>
+
+				<!-- 메타 정보 -->
+				<div class="detail-meta">
+					<div class="detail-meta-item"><i class="fa-solid fa-location-dot"></i> 이집트 · 제조협력사 · 전자</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-regular fa-calendar"></i> 거래개시일 2018.03.12</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-solid fa-building"></i> 사내거래업체</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-solid fa-star" style="color:#f59e0b;"></i> 즐겨찾기 등록됨</div>
+				</div>
+
+			</div><!-- //left -->
+
+			<!-- 액션 버튼 — 수정만 Primary -->
+			<div class="detail-actions">
+				<button class="det-btn star"><i class="fa-solid fa-star"></i></button>
+				<button class="det-btn"><i class="fa-solid fa-clock-rotate-left"></i> 변경 이력</button>
+				<button class="det-btn"><i class="fa-solid fa-download"></i> Excel</button>
+				<button class="det-btn"><i class="fa-solid fa-share-nodes"></i> 공유</button>
+				<span class="hs-wrap detail-edit-wrap">
+					<a href="nsrm_supplier_edit.html" class="det-btn primary" data-demo-target="supplier-edit-btn" aria-label="협력사 수정 페이지로 이동">
+						<i class="fa-solid fa-pen"></i> 수정
+					</a>
+					<span class="hs hs-page"><span class="hs-tip">수정으로 이동</span></span>
+				</span>
+			</div>
+
+		</div>
+	</div><!-- //detail-header -->
+
+
+	<!-- Quick Summary 카드 4개 -------------------------------- -->
+	<div class="summary-row">
+
+		<!-- 카드 1: 거래 상태 -->
+		<div class="summary-card">
+			<div class="sc-label"><i class="fa-solid fa-circle-check"></i> 거래 상태</div>
+			<div class="sc-main">
+				<div class="sc-key good">정상</div>
+			</div>
+			<div class="sc-divider"></div>
+			<div class="sc-sub">
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">Block 여부</span>
+					<span class="sc-sub-val good">N (정상)</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">관계사 구분</span>
+					<span class="sc-sub-val">사내거래업체</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">하도급 대상</span>
+					<span class="sc-sub-val">미분류</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 카드 2: 평가 등급 -->
+		<div class="summary-card">
+			<div class="sc-label"><i class="fa-solid fa-chart-bar"></i> 평가 등급</div>
+			<div class="sc-main">
+				<div class="sc-key good">A+</div>
+				<div class="sc-key-sub">/ Grade 1</div>
+			</div>
+			<div class="sc-divider"></div>
+			<div class="sc-sub">
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">최근 평가일</span>
+					<span class="sc-sub-val">2024.03.15</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">종합 등급</span>
+					<span class="sc-sub-val good">우수</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">전년 대비</span>
+					<span class="sc-sub-val good2">▲ 상승</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 카드 3: 최근 거래 -->
+		<div class="summary-card">
+			<div class="sc-label"><i class="fa-solid fa-truck"></i> 최근 거래</div>
+			<div class="sc-main">
+				<div class="sc-key good">98.2%</div>
+				<div class="sc-key-sub">납기 준수율</div>
+			</div>
+			<div class="sc-divider"></div>
+			<div class="sc-sub">
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">최근 발주일</span>
+					<span class="sc-sub-val">2024.11.15</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">Rolling 1년 실적</span>
+					<span class="sc-sub-val good">있음</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">위탁생산</span>
+					<span class="sc-sub-val">N</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 카드 4: 문서 상태 -->
+		<div class="summary-card">
+			<div class="sc-label"><i class="fa-solid fa-file-lines"></i> 문서 상태</div>
+			<div class="sc-main">
+				<div class="sc-key warn">D-30</div>
+				<div class="sc-key-sub">인증서 만료 예정</div>
+				<span class="chip chip-amber" style="font-size:11px;padding:2px 7px;margin-left:4px;">주의</span>
+			</div>
+			<div class="sc-divider"></div>
+			<div class="sc-sub">
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">계약서</span>
+					<span class="sc-sub-val good">유효</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">세금계산서</span>
+					<span class="sc-sub-val good">정상</span>
+				</div>
+				<div class="sc-sub-item">
+					<span class="sc-sub-label">총 문서</span>
+					<span class="sc-sub-val">7건</span>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- //summary-row -->
+
+
+	<!-- 탭 네비게이션 + 콘텐츠 ------------------------------- -->
+	<div class="tab-nav">
+
+		<div class="tab-nav-list">
+			<div class="tab-nav-item on" data-tab="tab-basic"><i class="fa-solid fa-circle-info"></i> 기본 정보</div>
+			<div class="tab-nav-item" data-tab="tab-trade"><i class="fa-solid fa-handshake"></i> 거래 조건</div>
+			<div class="tab-nav-item" data-tab="tab-eval"><i class="fa-solid fa-chart-line"></i> 평가 현황</div>
+			<div class="tab-nav-item" data-tab="tab-contact"><i class="fa-solid fa-address-book"></i> 담당자 연락처</div>
+			<div class="tab-nav-item" data-tab="tab-history"><i class="fa-solid fa-list-check"></i> 발주·납기 이력</div>
+			<div class="tab-nav-item" data-tab="tab-docs"><i class="fa-solid fa-folder-open"></i> 첨부 문서</div>
+		</div>
+
+
+		<!-- ── 기본 정보 탭 ── -->
+		<div class="tab-content on" id="tab-basic">
+
+			<!-- 2단 key-value 패널 -->
+			<div class="info-two-col">
+
+				<!-- 좌: 기업 기본 정보 -->
+				<div class="kv-panel">
+					<div class="kv-panel-title">기업 기본 정보</div>
+					<div class="kv-row"><span class="kv-label">협력사명 (Eng)</span><span class="kv-value">SAMSUNG ELECTRONICS EGYPT S.A.E</span></div>
+					<div class="kv-row"><span class="kv-label">협력사명 (Local)</span><span class="kv-value">SAMSUNG ELECTRONICS EGYPT</span></div>
+					<div class="kv-row"><span class="kv-label">협력사 코드</span><span class="kv-value">712B-A1</span></div>
+					<div class="kv-row"><span class="kv-label">사업자 등록번호</span><span class="kv-value muted">— (해외법인)</span></div>
+					<div class="kv-row"><span class="kv-label">대표자명</span><span class="kv-value">kinam lee</span></div>
+					<div class="kv-row"><span class="kv-label">설립연도</span><span class="kv-value">2003년</span></div>
+					<div class="kv-row"><span class="kv-label">국가 / 지역</span><span class="kv-value">이집트</span></div>
+					<div class="kv-row"><span class="kv-label">업태 / 업종</span><span class="kv-value">제조협력사 / 전자</span></div>
+					<div class="kv-row"><span class="kv-label">약어</span><span class="kv-value">SAMSUNG ELECTR…</span></div>
+				</div>
+
+				<!-- 우: 분류 및 운영 상태 -->
+				<div class="kv-panel">
+					<div class="kv-panel-title">분류 및 운영 상태</div>
+					<div class="kv-row"><span class="kv-label">등록구분</span><span class="kv-value"><span class="chip chip-blue">정규</span></span></div>
+					<div class="kv-row"><span class="kv-label">기업규모</span><span class="kv-value"><span class="chip chip-gray">대기업</span></span></div>
+					<div class="kv-row"><span class="kv-label">관계사 구분</span><span class="kv-value"><span class="chip chip-gray">사내거래업체</span></span></div>
+					<div class="kv-row"><span class="kv-label">한국계 여부</span><span class="kv-value">Y</span></div>
+					<div class="kv-row"><span class="kv-label">위탁생산</span><span class="kv-value">N</span></div>
+					<div class="kv-row"><span class="kv-label">Block 여부</span><span class="kv-value"><span class="chip chip-green"><i class="fa-solid fa-circle-check" style="font-size:10px;"></i> N 정상</span></span></div>
+					<div class="kv-row"><span class="kv-label">하도급대상</span><span class="kv-value"><span class="chip chip-gray">미분류</span></span></div>
+					<div class="kv-row"><span class="kv-label">최종 수정일</span><span class="kv-value">2024.10.22</span></div>
+				</div>
+
+			</div><!-- //info-two-col -->
+
+			<!-- 주소 정보 (full width) -->
+			<div class="kv-panel-full">
+				<div class="kv-panel-title">주소 정보</div>
+				<div class="kv-row"><span class="kv-label">본사 주소</span><span class="kv-value">6th of October City, Giza, Egypt, Cairo Industrial Zone</span></div>
+			</div>
+
+		</div><!-- //tab-basic -->
+
+
+		<!-- ── 거래 조건 탭 ── -->
+		<div class="tab-content" id="tab-trade">
+
+			<div class="info-section">
+				<div class="info-section-title">거래 기본 조건</div>
+				<div class="info-grid">
+					<div class="info-item">
+						<div class="info-label">거래개시일</div>
+						<div class="info-value">2018.03.12</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">거래실적 (Rolling 1년)</div>
+						<div class="info-value"><span class="info-badge ib-green">있음</span></div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">결제 조건</div>
+						<div class="info-value">Net 60</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">통화</div>
+						<div class="info-value">USD</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">Incoterms</div>
+						<div class="info-value">DAP (Delivered at Place)</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">최소 발주 수량</div>
+						<div class="info-value">500 EA</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="info-section">
+				<div class="info-section-title">평가 조건</div>
+				<div class="info-grid">
+					<div class="info-item">
+						<div class="info-label">Current D/T</div>
+						<div class="info-value" style="font-size:16px;font-weight:800;color:#15803d;">A+</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">Current G/T</div>
+						<div class="info-value" style="font-size:16px;font-weight:800;color:#19289A;">Grade 1</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">평가 주기</div>
+						<div class="info-value">연 1회 (3월)</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">납기 준수율</div>
+						<div class="info-value" style="color:#15803d;font-weight:700;">98.2%</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">불량률</div>
+						<div class="info-value" style="color:#15803d;font-weight:700;">0.03%</div>
+					</div>
+					<div class="info-item">
+						<div class="info-label">최근 평가일</div>
+						<div class="info-value">2024.03.15</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- //tab-trade -->
+
+
+		<!-- ── 평가 현황 탭 ── -->
+		<div class="tab-content" id="tab-eval">
+
+			<div class="info-section">
+				<div class="info-section-title">현재 등급</div>
+				<div class="eval-grid">
+					<div class="eval-card">
+						<div class="eval-card-title">D/T 등급 (납기·품질)</div>
+						<div class="eval-grade a-plus">A+</div>
+						<div class="eval-date">최근 평가 2024.03.15</div>
+					</div>
+					<div class="eval-card">
+						<div class="eval-card-title">G/T 등급 (글로벌 거래)</div>
+						<div class="eval-grade">Grade 1</div>
+						<div class="eval-date">최근 평가 2024.03.15</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 등급 히스토리 타임라인 -->
+			<div class="info-section">
+				<div class="info-section-title">등급 히스토리 (최근 3회)</div>
+				<div class="eval-timeline">
+					<div class="eval-tl-item">
+						<div class="eval-tl-grade">B+</div>
+						<div class="eval-tl-date">2022.03</div>
+					</div>
+					<div class="eval-tl-arrow">›</div>
+					<div class="eval-tl-item">
+						<div class="eval-tl-grade">A</div>
+						<div class="eval-tl-date">2023.03</div>
+					</div>
+					<div class="eval-tl-arrow">›</div>
+					<div class="eval-tl-item">
+						<div class="eval-tl-grade up">A+</div>
+						<div class="eval-tl-date">2024.03</div>
+					</div>
+					<div style="flex:1;"></div>
+					<div style="font-size:12px;color:#15803d;font-weight:700;padding-right:8px;">▲ 지속 상승 추세</div>
+				</div>
+			</div>
+
+			<!-- 이력 테이블 -->
+			<div class="info-section">
+				<div class="info-section-title">연도별 평가 이력</div>
+				<table class="history-tbl">
+					<thead>
+						<tr>
+							<th>평가연도</th>
+							<th>D/T 등급</th>
+							<th>G/T 등급</th>
+							<th>납기준수율</th>
+							<th>불량률</th>
+							<th>종합 의견</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>2024</td>
+							<td style="color:#15803d;font-weight:700;">A+</td>
+							<td style="font-weight:700;">Grade 1</td>
+							<td class="delivery-ok">98.2%</td>
+							<td class="delivery-ok">0.03%</td>
+							<td style="color:#4b5270;">지속 우수 협력사 선정</td>
+						</tr>
+						<tr>
+							<td>2023</td>
+							<td style="color:#15803d;font-weight:700;">A</td>
+							<td style="font-weight:700;">Grade 1</td>
+							<td class="delivery-ok">97.1%</td>
+							<td class="delivery-ok">0.05%</td>
+							<td style="color:#4b5270;">전년 대비 개선</td>
+						</tr>
+						<tr>
+							<td>2022</td>
+							<td style="color:#d97706;font-weight:700;">B+</td>
+							<td style="font-weight:700;">Grade 2</td>
+							<td class="delivery-warn">94.3%</td>
+							<td class="delivery-warn">0.12%</td>
+							<td style="color:#4b5270;">납기 지연 이슈 발생</td>
+						</tr>
+						<tr>
+							<td>2021</td>
+							<td style="color:#15803d;font-weight:700;">A</td>
+							<td style="font-weight:700;">Grade 1</td>
+							<td class="delivery-ok">96.8%</td>
+							<td class="delivery-ok">0.07%</td>
+							<td style="color:#4b5270;">안정적 거래 유지</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div><!-- //tab-eval -->
+
+
+		<!-- ── 담당자 연락처 탭 ── -->
+		<div class="tab-content" id="tab-contact">
+
+			<div class="info-section">
+				<div class="info-section-title">협력사 측 담당자</div>
+				<div class="contact-grid">
+					<div class="contact-card">
+						<div class="contact-role">영업 담당</div>
+						<div class="contact-name">kinam lee</div>
+						<div class="contact-info">
+							<div class="contact-info-item"><i class="fa-solid fa-envelope"></i> kinam.lee@sec-eg.com</div>
+							<div class="contact-info-item"><i class="fa-solid fa-phone"></i> +20-2-1234-5678</div>
+							<div class="contact-info-item"><i class="fa-solid fa-location-dot"></i> 이집트, 카이로</div>
+						</div>
+					</div>
+					<div class="contact-card">
+						<div class="contact-role">기술 담당</div>
+						<div class="contact-name">Ahmed Hassan</div>
+						<div class="contact-info">
+							<div class="contact-info-item"><i class="fa-solid fa-envelope"></i> a.hassan@sec-eg.com</div>
+							<div class="contact-info-item"><i class="fa-solid fa-phone"></i> +20-2-1234-5679</div>
+							<div class="contact-info-item"><i class="fa-solid fa-location-dot"></i> 이집트, 기자</div>
+						</div>
+					</div>
+					<div class="contact-card">
+						<div class="contact-role">품질 담당</div>
+						<div class="contact-name">Sara Mohamed</div>
+						<div class="contact-info">
+							<div class="contact-info-item"><i class="fa-solid fa-envelope"></i> s.mohamed@sec-eg.com</div>
+							<div class="contact-info-item"><i class="fa-solid fa-phone"></i> +20-2-1234-5680</div>
+							<div class="contact-info-item"><i class="fa-solid fa-location-dot"></i> 이집트, 카이로</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="info-section">
+				<div class="info-section-title">삼성 내부 담당 바이어</div>
+				<div class="contact-grid">
+					<div class="contact-card">
+						<div class="contact-role">주 담당 바이어</div>
+						<div class="contact-name">김철수 책임</div>
+						<div class="contact-info">
+							<div class="contact-info-item"><i class="fa-solid fa-envelope"></i> cs.kim@samsung.com</div>
+							<div class="contact-info-item"><i class="fa-solid fa-phone"></i> 02-2255-1234</div>
+							<div class="contact-info-item"><i class="fa-solid fa-building"></i> DS사업부 부품구매팀</div>
+						</div>
+					</div>
+					<div class="contact-card">
+						<div class="contact-role">백업 담당</div>
+						<div class="contact-name">이지영 선임</div>
+						<div class="contact-info">
+							<div class="contact-info-item"><i class="fa-solid fa-envelope"></i> jy.lee@samsung.com</div>
+							<div class="contact-info-item"><i class="fa-solid fa-phone"></i> 02-2255-1235</div>
+							<div class="contact-info-item"><i class="fa-solid fa-building"></i> DS사업부 부품구매팀</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- //tab-contact -->
+
+
+		<!-- ── 발주·납기 이력 탭 ── -->
+		<div class="tab-content" id="tab-history">
+
+			<div class="info-section">
+				<div class="info-section-title">발주·납기 이력 (최근 6건)</div>
+				<table class="history-tbl">
+					<thead>
+						<tr>
+							<th>발주번호</th>
+							<th>발주일</th>
+							<th>품목</th>
+							<th>발주수량</th>
+							<th>발주금액 (USD)</th>
+							<th>납기 예정일</th>
+							<th>납기 실적일</th>
+							<th>납기 상태</th>
+							<th>비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-11523</td>
+							<td>2024.11.15</td>
+							<td>Display Module A</td>
+							<td style="text-align:right;">2,500 EA</td>
+							<td style="text-align:right;">$128,500</td>
+							<td>2024.12.10</td>
+							<td>2024.12.09</td>
+							<td class="delivery-ok"><i class="fa-solid fa-circle-check"></i> 정시</td>
+							<td style="color:#9aa0b4;">—</td>
+						</tr>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-10891</td>
+							<td>2024.10.02</td>
+							<td>PCB Assembly B</td>
+							<td style="text-align:right;">1,800 EA</td>
+							<td style="text-align:right;">$96,200</td>
+							<td>2024.11.01</td>
+							<td>2024.11.05</td>
+							<td class="delivery-late"><i class="fa-solid fa-circle-xmark"></i> 지연 +4일</td>
+							<td style="color:#9aa0b4;">물류 지연</td>
+						</tr>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-09244</td>
+							<td>2024.09.10</td>
+							<td>Display Module A</td>
+							<td style="text-align:right;">3,000 EA</td>
+							<td style="text-align:right;">$154,000</td>
+							<td>2024.10.08</td>
+							<td>2024.10.07</td>
+							<td class="delivery-ok"><i class="fa-solid fa-circle-check"></i> 정시</td>
+							<td style="color:#9aa0b4;">—</td>
+						</tr>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-08112</td>
+							<td>2024.08.05</td>
+							<td>Cable Assembly</td>
+							<td style="text-align:right;">5,000 EA</td>
+							<td style="text-align:right;">$42,000</td>
+							<td>2024.09.03</td>
+							<td>2024.09.03</td>
+							<td class="delivery-ok"><i class="fa-solid fa-circle-check"></i> 정시</td>
+							<td style="color:#9aa0b4;">—</td>
+						</tr>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-07033</td>
+							<td>2024.07.18</td>
+							<td>PCB Assembly B</td>
+							<td style="text-align:right;">2,200 EA</td>
+							<td style="text-align:right;">$117,700</td>
+							<td>2024.08.16</td>
+							<td>2024.08.16</td>
+							<td class="delivery-ok"><i class="fa-solid fa-circle-check"></i> 정시</td>
+							<td style="color:#9aa0b4;">—</td>
+						</tr>
+						<tr>
+							<td style="color:#19289A;font-weight:700;">PO-2024-05887</td>
+							<td>2024.05.22</td>
+							<td>Display Module A</td>
+							<td style="text-align:right;">1,500 EA</td>
+							<td style="text-align:right;">$77,000</td>
+							<td>2024.06.20</td>
+							<td>2024.06.18</td>
+							<td class="delivery-ok"><i class="fa-solid fa-circle-check"></i> 정시</td>
+							<td style="color:#9aa0b4;">—</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div><!-- //tab-history -->
+
+
+		<!-- ── 첨부 문서 탭 ── -->
+		<div class="tab-content" id="tab-docs">
+
+			<div class="info-section">
+				<div class="info-section-title">등록 문서 (7건)</div>
+				<div class="doc-list">
+
+					<div class="doc-item">
+						<div class="doc-item-left">
+							<div class="doc-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+							<div class="doc-info">
+								<div class="doc-name">기본거래계약서_712B-A1_2023.pdf</div>
+								<div class="doc-meta">PDF · 2.3MB · 등록일 2023.01.10 · 유효기간 2025.12.31</div>
+							</div>
+						</div>
+						<div class="doc-item-right">
+							<span class="doc-status info-badge ib-green">유효</span>
+							<button class="doc-download"><i class="fa-solid fa-download"></i> 다운로드</button>
+						</div>
+					</div>
+
+					<div class="doc-item">
+						<div class="doc-item-left">
+							<div class="doc-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+							<div class="doc-info">
+								<div class="doc-name">품질인증서_ISO9001_2022.pdf</div>
+								<div class="doc-meta">PDF · 1.1MB · 등록일 2022.03.15 · 유효기간 2024.12.31</div>
+							</div>
+						</div>
+						<div class="doc-item-right">
+							<span class="doc-status info-badge ib-amber">만료 예정 D-30</span>
+							<button class="doc-download"><i class="fa-solid fa-download"></i> 다운로드</button>
+						</div>
+					</div>
+
+					<div class="doc-item">
+						<div class="doc-item-left">
+							<div class="doc-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+							<div class="doc-info">
+								<div class="doc-name">단가협정표_2024_H2.xlsx</div>
+								<div class="doc-meta">Excel · 0.8MB · 등록일 2024.06.30 · 적용기간 2024.07~12</div>
+							</div>
+						</div>
+						<div class="doc-item-right">
+							<span class="doc-status info-badge ib-green">유효</span>
+							<button class="doc-download"><i class="fa-solid fa-download"></i> 다운로드</button>
+						</div>
+					</div>
+
+					<div class="doc-item">
+						<div class="doc-item-left">
+							<div class="doc-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+							<div class="doc-info">
+								<div class="doc-name">사업자등록증_해외법인_2024.pdf</div>
+								<div class="doc-meta">PDF · 0.5MB · 등록일 2024.01.05</div>
+							</div>
+						</div>
+						<div class="doc-item-right">
+							<span class="doc-status info-badge ib-green">유효</span>
+							<button class="doc-download"><i class="fa-solid fa-download"></i> 다운로드</button>
+						</div>
+					</div>
+
+					<div class="doc-item">
+						<div class="doc-item-left">
+							<div class="doc-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+							<div class="doc-info">
+								<div class="doc-name">협력사_평가결과서_2024.pdf</div>
+								<div class="doc-meta">PDF · 1.8MB · 등록일 2024.03.20</div>
+							</div>
+						</div>
+						<div class="doc-item-right">
+							<span class="doc-status info-badge ib-blue">참고</span>
+							<button class="doc-download"><i class="fa-solid fa-download"></i> 다운로드</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div><!-- //tab-docs -->
+
+
+	</div><!-- //tab-nav -->
+
+
+</div><!-- //body -->
+
+
+<div class="login-demo-cursor is-hidden" id="loginDemoCursor" aria-hidden="true">
+  <span class="login-cursor-ibeam"></span>
+  <img src="images/pointer.png" alt="" class="login-cursor-pointer" />
+</div>
+
+<script src="js/include.js"></script>
+<script src="js/demo-control.js?v=8"></script>
+<script src="js/demo-flow.js?v=8"></script>
+
+<script>
+/* 탭 전환 */
+document.querySelectorAll('.tab-nav-item').forEach(item => {
+	item.addEventListener('click', function() {
+		document.querySelectorAll('.tab-nav-item').forEach(t => t.classList.remove('on'));
+		this.classList.add('on');
+		const target = this.dataset.tab;
+		document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('on'));
+		document.getElementById(target).classList.add('on');
+	});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=1280">
+<title>N-SRM — 협력사 조회</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="css/common.css?v=8">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/supplier_list.css">
+<link rel="stylesheet" href="css/portfolio.css">
+</head>
+
+<body data-gnb="supplier" data-sub-active="supplier_list">
+
+<div id="header"></div>
+
+<div class="body">
+
+
+
+
+	<!-- 페이지 헤더 : 타이틀 + 액션 버튼 ---------------------- -->
+	<div class="ph">
+		<div class="ph-left">
+			<div class="ph-title-row">
+				<h1 class="ph-title">협력사 정보</h1>
+				<span class="ph-sub">Supplier Information</span>
+			</div>
+		</div>
+		<div class="ph-right">
+			<button class="ph-btn">
+				<i class="fa-solid fa-download"></i> Excel 다운로드
+			</button>
+			<button class="ph-btn primary">
+				<i class="fa-solid fa-plus"></i> 신규 협력사 등록
+			</button>
+		</div>
+	</div><!-- //ph -->
+
+
+	<!-- 검색 조건 필터 카드 ------------------------------------ -->
+	<div class="fc">
+
+		<!-- 필터 헤더 -->
+		<div class="fc-head">
+			<div class="fc-title"><i class="fa-solid fa-filter"></i> 검색 조건</div>
+			<div class="fc-toggle" id="ftBtn"><i class="fa-solid fa-chevron-up"></i> 접기</div>
+		</div>
+
+		<!-- 필터 폼 -->
+		<div class="fc-body" id="fbody">
+
+			<!-- 기본 검색 조건 (항상 노출) -->
+			<div class="fc-grid">
+
+				<!-- 협력사 -->
+				<div class="fc-row">
+					<div class="fc-label">협력사</div>
+					<div class="f-code-wrap">
+						<div class="f-rel" style="flex:0 0 68px;">
+							<input class="f-input" type="text" placeholder="코드">
+							<span class="f-edit"><i class="fa-solid fa-pen"></i></span>
+						</div>
+						<input class="f-input" type="text" value="samsung" placeholder="협력사명" style="flex:1">
+					</div>
+				</div>
+
+				<!-- 국가/지역 -->
+				<div class="fc-row">
+					<div class="fc-label">국가 / 지역</div>
+					<select class="fs">
+						<option value="">전체</option>
+						<option>한국</option>
+						<option>중국</option>
+						<option>미국</option>
+						<option>베트남</option>
+						<option>헝가리</option>
+						<option>브라질</option>
+					</select>
+				</div>
+
+				<!-- 등록구분 -->
+				<div class="fc-row">
+					<div class="fc-label">등록구분</div>
+					<select class="fs">
+						<option value="">전체</option>
+						<option>정규</option>
+						<option>비정규</option>
+					</select>
+				</div>
+
+				<!-- 거래개시일 -->
+				<div class="fc-row">
+					<div class="fc-label">거래개시일</div>
+					<div class="f-date">
+						<input class="f-input" type="text" placeholder="From" style="text-align:center">
+						<span class="f-sep">—</span>
+						<input class="f-input" type="text" placeholder="To" style="text-align:center">
+						<div class="f-cal"><i class="fa-regular fa-calendar"></i></div>
+					</div>
+				</div>
+
+				<!-- Block 여부 -->
+				<div class="fc-row">
+					<div class="fc-label">Block 여부</div>
+					<select class="fs">
+						<option value="">전체</option>
+						<option selected>N</option>
+						<option>Y</option>
+					</select>
+				</div>
+
+				<!-- 즐겨찾기 -->
+				<div class="fc-row fc-row-chk">
+					<div class="f-chk-row">
+						<input class="f-chk" type="checkbox" id="chk-fav" checked>
+						<label class="f-chk-lbl" for="chk-fav">즐겨찾기만 보기</label>
+					</div>
+				</div>
+
+			</div><!-- //fc-grid 기본 -->
+
+			<!-- 상세 조건 토글 버튼 -->
+			<button class="fc-advanced-toggle highlight-toggle" id="advBtn">
+      <i class="fa-solid fa-plus"></i> 상세 조건 더보기 (9)
+      </button>
+
+			<!-- 상세 검색 조건 (기본 숨김) -->
+			<div class="fc-advanced" id="advBody">
+				<div class="fc-grid">
+
+					<!-- 업태 -->
+					<div class="fc-row">
+						<div class="fc-label">업체</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>제조협력사</option>
+							<option>서비스협력사</option>
+							<option>유통협력사</option>
+						</select>
+					</div>
+
+					<!-- 업종 -->
+					<div class="fc-row">
+						<div class="fc-label">업종</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>전자</option>
+							<option>기계</option>
+							<option>화학</option>
+						</select>
+					</div>
+
+					<!-- 기업규모 -->
+					<div class="fc-row">
+						<div class="fc-label">기업규모</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>대기업</option>
+							<option>중견기업</option>
+							<option>중소기업</option>
+						</select>
+					</div>
+
+					<!-- 대표자명 -->
+					<div class="fc-row">
+						<div class="fc-label">대표자명</div>
+						<input class="f-input" type="text" placeholder="대표자명 입력">
+					</div>
+
+					<!-- 사업자 등록번호 -->
+					<div class="fc-row">
+						<div class="fc-label">사업자 등록번호</div>
+						<input class="f-input" type="text" placeholder="000-00-00000">
+					</div>
+
+					<!-- 관계사 구분 -->
+					<div class="fc-row">
+						<div class="fc-label">관계사 구분</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>사내거래업체</option>
+							<option>외부거래업체</option>
+						</select>
+					</div>
+
+					<!-- 하도급대상 여부 -->
+					<div class="fc-row">
+						<div class="fc-label">하도급대상 여부</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>Y</option>
+							<option>N</option>
+						</select>
+					</div>
+
+					<!-- 위탁생산 -->
+					<div class="fc-row">
+						<div class="fc-label">위탁생산</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>Y</option>
+							<option>N</option>
+						</select>
+					</div>
+
+					<!-- 한국계 여부 -->
+					<div class="fc-row">
+						<div class="fc-label">한국계 여부</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>Y</option>
+							<option>N</option>
+						</select>
+					</div>
+
+					<!-- 거래실적 -->
+					<div class="fc-row">
+						<div class="fc-label">거래실적 (Rolling 1년)</div>
+						<select class="fs">
+							<option value="">전체</option>
+							<option>있음</option>
+							<option>없음</option>
+						</select>
+					</div>
+
+					<!-- Current D/T -->
+					<div class="fc-row">
+						<div class="fc-label">Current D/T</div>
+						<div class="f-rel">
+							<input class="f-input" type="text">
+							<span class="f-edit"><i class="fa-solid fa-pen"></i></span>
+						</div>
+					</div>
+
+					<!-- Current G/T -->
+					<div class="fc-row">
+						<div class="fc-label">Current G/T</div>
+						<div class="f-rel">
+							<input class="f-input" type="text">
+							<span class="f-edit"><i class="fa-solid fa-pen"></i></span>
+						</div>
+					</div>
+
+				</div><!-- //fc-grid 상세 -->
+			</div><!-- //fc-advanced -->
+
+		</div><!-- //fc-body -->
+
+		<!-- 초기화 + 검색 버튼 -->
+		<div class="fc-foot">
+			<button class="f-reset"><i class="fa-solid fa-rotate-left"></i> 초기화</button>
+			<button class="f-search"><i class="fa-solid fa-magnifying-glass"></i> 검색</button>
+		</div>
+
+	</div><!-- //fc -->
+
+
+	<!-- 검색 결과 카드 ----------------------------------------- -->
+	<div class="rc">
+
+		<!-- 결과 툴바 -->
+		<div class="rc-toolbar">
+			<div class="rc-count">
+				<span class="rc-count-label">검색결과</span>
+				<span class="rc-count-num">281</span>
+				<span class="rc-count-unit">개사</span>
+			</div>
+			<div class="rc-actions">
+				<button class="rc-btn"><i class="fa-solid fa-file-excel"></i> Excel</button>
+				<div class="rc-div"></div>
+				<button class="rc-btn"><i class="fa-solid fa-table-columns"></i> 컬럼 설정</button>
+				<button class="rc-btn"><i class="fa-solid fa-sliders"></i> 표시 설정</button>
+			</div>
+		</div><!-- //rc-toolbar -->
+
+		<!-- 데이터 테이블 — 핵심 컬럼 위주 정리, 협력사명 ENG+Local 통합 -->
+		<div class="tbl-scroll">
+			<table class="tbl">
+				<thead>
+					<tr>
+						<th class="tc" style="width:36px;"><input type="checkbox" style="accent-color:rgba(255,255,255,0.7);"></th>
+						<th class="tc" style="width:38px;">No</th>
+						<th class="tc" style="width:34px;"></th>
+						<th style="width:60px;">구분</th>
+						<th style="width:90px;">협력사 코드</th>
+						<th style="min-width:240px;">협력사명</th>
+						<th style="width:90px;">국가/지역</th>
+						<th style="width:88px;">업태</th>
+						<th style="width:56px;">업종</th>
+						<th style="width:150px;">대표자명</th>
+						<th style="width:110px;">사업자 등록번호</th>
+						<th class="tc" style="width:50px;">Block</th>
+						<th style="width:75px;">기업규모</th>
+						<th style="width:100px;">관계사 구분</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<!-- 1번 행 (선택됨) -->
+					<tr class="sel" id="row1" onclick="toggleExp()">
+						<td class="td-chk"><input type="checkbox" checked></td>
+						<td class="td-no">1</td>
+						<td class="tc"><span class="exp-btn" id="expBtn">&#9660;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">712B-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS EGYPT S.A.E</span>
+								<span class="sup-nm-l">SAMSUNG ELECTRONICS EGYPT</span>
+							</div>
+						</td>
+						<td>이집트</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">kinam lee</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 1번 행 확장 패널 -->
+					<tr class="row-exp" id="expRow">
+						<td colspan="14">
+							<div class="row-exp-in">
+								<div class="exp-item"><span class="exp-lbl">약어</span><span class="exp-val">SAMSUNG ELECTR…</span></div>
+								<div class="exp-item"><span class="exp-lbl">거래개시일</span><span class="exp-val">2018.03.12</span></div>
+								<div class="exp-item"><span class="exp-lbl">Current D/T</span><span class="exp-val">A+</span></div>
+								<div class="exp-item"><span class="exp-lbl">Current G/T</span><span class="exp-val">Grade 1</span></div>
+								<div class="exp-item"><span class="exp-lbl">위탁생산</span><span class="exp-val">N</span></div>
+								<div class="exp-item"><span class="exp-lbl">한국계</span><span class="exp-val">Y</span></div>
+								<div class="exp-item"><span class="exp-lbl">하도급대상</span><span class="exp-val">미분류</span></div>
+								<div class="exp-item">
+                <span class="exp-lbl">상세보기</span>
+                <span class="exp-val">
+                <span class="hs-wrap" style="display:inline-block;">
+                <a href="nsrm_supplier_detail.html" class="exp-highlight-link" data-demo-target="supplier-detail-link" aria-label="협력사 상세 페이지로 이동">협력사 상세 &gt;</a>
+                <span class="hs hs-page"><span class="hs-tip">상세로 이동</span></span>
+                </span>
+                </span>
+                </div>
+							</div>
+						</td>
+					</tr>
+
+					<!-- 2번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">2</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">360D-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG INTERNATIONAL INC.</span>
+								<span class="sup-nm-l">SAMSUNG INTERNATIONAL INC.</span>
+							</div>
+						</td>
+						<td>미합중국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">—</td>
+						<td class="td-sec">—</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 3번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">3</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">490A-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS HUNGARY RT.</span>
+								<span class="sup-nm-l">SAMSUNG ELECTRONICS HUNGARY</span>
+							</div>
+						</td>
+						<td>헝가리</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">—</td>
+						<td class="td-sec">—</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 4번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">4</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">490F-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS HUNGARY ZRT</span>
+								<span class="sup-nm-l">SAMSUNG ELECTRONICS HUNGARY ZRT</span>
+							</div>
+						</td>
+						<td>헝가리</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">—</td>
+						<td class="td-sec">—</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 5번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">5</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">4M0C-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS SLOVAKIA, S.R.O.</span>
+								<span class="sup-nm-l">SAMSUNG ELECTRONICS SLOVAKIA</span>
+							</div>
+						</td>
+						<td>슬로바키아</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">JONGSHIG WOO</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 6번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">6</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">820B-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELETRONICA DA AMAZONIA LTDA</span>
+								<span class="sup-nm-l">SAMSUNG ELETRONICA DA AMAZONIA</span>
+							</div>
+						</td>
+						<td>브라질</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">—</td>
+						<td class="td-sec">—</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 7번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">7</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">820E-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELETRONICA DA AMAZONIA LTDA</span>
+								<span class="sup-nm-l">SAMSUNG ELETRONICA DA AMAZONIA</span>
+							</div>
+						</td>
+						<td>브라질</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">Jun Young Hyun</td>
+						<td class="td-abbr">—</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 8번 행 (비정규) -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">8</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-i">비정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AC01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS CO., LTD.</span>
+								<span class="sup-nm-l">SAMSUNG ELECTRONICS CO., LTD.</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 9번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">9</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AK01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS DISPLAY CO., LTD.</span>
+								<span class="sup-nm-l">삼성디스플레이(주)</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 10번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">10</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AL01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">삼성전자(주) LCD/VD 일관생산</span>
+								<span class="sup-nm-l">삼성전자LCD/VD</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 11번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">11</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AP01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">삼성전자(주) 공조솔루션</span>
+								<span class="sup-nm-l">삼성전자공조솔루션</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 12번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">12</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AR01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">Samsung HQ</span>
+								<span class="sup-nm-l">Samsung HQ</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 13번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">13</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">AZ01-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS Co., LT 로봇사업팀</span>
+								<span class="sup-nm-l">삼성전자(주) 로봇사업팀</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">전영현 (YoungHyun Jun)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 14번 행 -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">14</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">B201-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">SAMSUNG ELECTRONICS Co., LT 디지털총괄</span>
+								<span class="sup-nm-l">디지털총괄</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">제조협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-l">대기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+					<!-- 15번 행 (중견기업) -->
+					<tr>
+						<td class="td-chk"><input type="checkbox"></td>
+						<td class="td-no">15</td>
+						<td class="tc"><span class="exp-btn">&#9654;</span></td>
+						<td><span class="reg-b reg-r">정규</span></td>
+						<td><a class="sup-code" onclick="location.href='nsrm_supplier_detail.html'" style="cursor:pointer;">C101-A1</a></td>
+						<td>
+							<div class="sup-nm-wrap">
+								<span class="sup-nm">삼성전자서비스(주)</span>
+								<span class="sup-nm-l">Samsung Electronics Service</span>
+							</div>
+						</td>
+						<td>한국</td>
+						<td><span class="td-tag">서비스협력사</span></td>
+						<td class="td-biz">전자</td>
+						<td class="td-sec">권오현 (OH-HYUN KWON)</td>
+						<td class="td-sec">124-81-00998</td>
+						<td class="blk-n tc">N</td>
+						<td><span class="sz-b sz-m">중견기업</span></td>
+						<td class="td-sec">사내거래업체</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div><!-- //tbl-scroll -->
+
+		<!-- 페이지네이션 -->
+		<div class="pagi">
+			<div class="pagi-per">
+				<span>페이지당</span>
+				<select class="pagi-sel">
+					<option>15</option>
+					<option>30</option>
+					<option>50</option>
+					<option>100</option>
+				</select>
+				<span>개</span>
+			</div>
+			<div class="pagi-ctrl">
+				<button class="pg-btn dis">&#171;</button>
+				<button class="pg-btn dis">&#8249;</button>
+				<button class="pg-btn on">1</button>
+				<button class="pg-btn">2</button>
+				<button class="pg-btn">3</button>
+				<button class="pg-btn">4</button>
+				<button class="pg-btn">5</button>
+				<span style="padding:0 3px;color:#9aa0b4;font-size:10px;">&#8230;</span>
+				<button class="pg-btn">19</button>
+				<button class="pg-btn">&#8250;</button>
+				<button class="pg-btn">&#187;</button>
+			</div>
+			<div class="pagi-info">전체 <strong>281</strong>개 중 <strong>1 – 15</strong> 표시</div>
+		</div><!-- //pagi -->
+
+	</div><!-- //rc -->
+
+
+</div><!-- //body -->
+
+
+<script>
+/* 필터 카드 접기/펼치기 */
+const ftBtn = document.getElementById('ftBtn');
+const fbody = document.getElementById('fbody');
+let filterOpen = true;
+
+ftBtn.addEventListener('click', () => {
+	filterOpen = !filterOpen;
+	fbody.style.display = filterOpen ? '' : 'none';
+	ftBtn.innerHTML = filterOpen
+		? `<i class="fa-solid fa-chevron-up"></i> 접기`
+		: `<i class="fa-solid fa-chevron-down"></i> 펼치기`;
+});
+
+/* 상세 조건 더보기/접기 */
+const advBtn  = document.getElementById('advBtn');
+const advBody = document.getElementById('advBody');
+let advOpen = false;
+
+function setAdvOpen(open) {
+	advOpen = open;
+	advBody.classList.toggle('open', advOpen);
+	advBtn.innerHTML = advOpen
+		? `<i class="fa-solid fa-minus"></i> 상세 조건 접기`
+		: `<i class="fa-solid fa-plus"></i> 상세 조건 더보기 (9)`;
+}
+
+advBtn.addEventListener('click', () => setAdvOpen(!advOpen));
+
+/* 페이지 진입 시 상세 조건 자동 열림 → 닫힘 (짧게) */
+document.addEventListener('DOMContentLoaded', () => {
+	setTimeout(() => setAdvOpen(true), 150);
+	setTimeout(() => setAdvOpen(false), 750);
+});
+
+/* 1번 행 확장 패널 토글 */
+function toggleExp() {
+	const row = document.getElementById('expRow');
+	const btn = document.getElementById('expBtn');
+	const isOpen = row.style.display !== 'none';
+	row.style.display = isOpen ? 'none' : '';
+	btn.innerHTML    = isOpen ? '&#9654;' : '&#9660;';
+}
+
+/* 테이블 행 선택 */
+document.querySelectorAll('.tbl tbody tr:not(.row-exp)').forEach((tr, i) => {
+	if (i > 0) {
+		tr.addEventListener('click', function() {
+			document.querySelectorAll('.tbl tbody tr').forEach(r => r.classList.remove('sel'));
+			this.classList.add('sel');
+		});
+	}
+});
+</script>
+
+<div class="login-demo-cursor is-hidden" id="loginDemoCursor" aria-hidden="true">
+  <span class="login-cursor-ibeam"></span>
+  <img src="images/pointer.png" alt="" class="login-cursor-pointer" />
+</div>
+
+<!-- 공통 헤더 로드 스크립트 -->
+<script src="js/include.js"></script>
+<script src="js/demo-control.js?v=8"></script>
+<script src="js/demo-flow.js?v=8"></script>
+
+</body>
+</html>

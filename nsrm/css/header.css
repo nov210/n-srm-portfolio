@@ -1,0 +1,313 @@
+/* ============================================================
+   header.css — 공통 헤더 스타일
+   ------------------------------------------------------------
+   header.html을 index/detail/list에서 동일하게 불러오기 때문에
+   헤더 폭은 100%, 내부 정렬은 max-width:1920px 기준으로 통일합니다.
+   ============================================================ */
+
+/* Header */
+header {
+  width: 100%;
+  background: none;
+}
+.top-header {
+  width: 100%;
+  height: 44px;
+  background-color: #1C2894;
+}
+.header-inner {
+  width: 100%;
+  max-width: 1760px;
+  height: 44px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+}
+/* Logo */
+.logo a {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+}
+/* Top Util */
+.utilMenu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Global Search */
+.global-search {
+  width: 126px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #eee;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.global-search-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.global-search-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.global-search__icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+.global-search-arrow {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+.global-search-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* User */
+.top-util-user {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+}
+/* Select Text */
+.top-util-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.7);
+}
+.top-util-select img {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+/* Icons */
+.top-util-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.top-util-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-util-icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+/* Security */
+.top-util-security {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ff4b4b;
+}
+.top-util-security::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* main */ 
+.main-wrap {
+  width: 100%;
+  height: 56px;
+  border-bottom: 1px solid #DCDCDC;
+  background-color: #fff;
+}
+.main{
+  width: 100%;
+  max-width: 1760px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  border-bottom: 1px solid #DCDCDC;
+  box-sizing: border-box;
+}
+.top-menu-icon {
+  flex: 0 0 auto;
+  margin-right: 16px;
+}
+.gnb-right{
+  margin-left: auto;
+}
+.main-list{
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #5A6280;
+ /*  flex: 1; */
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.main-list li {
+  flex-shrink: 0;
+}
+.main-list a {
+  color: inherit;
+  text-decoration: none;
+}
+.M-Menu{
+  color: #1A1E2E;
+  font-weight: 600;
+  align-items: center;
+  /* padding-left: 4px; */
+}
+.M-Menu::before{
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  background-image: url('../images/icon-star.svg');
+}
+.M-Menu2{
+  font-weight: 500;
+}
+.M-Menu3{
+  width: 160px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #1C2894;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  line-height:30px;
+}
+.M-Menu3 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  border-radius: inherit;
+}
+/* 2단메뉴 */
+.sub-menu {
+  width: 100%;
+  max-width: 1760px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #fff;
+
+  /* ★ 흰색 배경과 라인을 화면 끝까지 확장 */
+  box-shadow: 0 0 0 100vmax #fff;
+  clip-path: inset(0 -100vmax);
+}
+
+/* 왼쪽 화살표 */
+.sub-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+/* 서브 메뉴 공통 */
+.sub-m-h,
+.sub-m-p {
+  height: 27px;
+  font-size: 12px;
+  color: #8a91a8;
+  font-weight: 500;
+  background-color: transparent;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.sub-m-h {
+  min-width: 72px;
+}
+
+.sub-m-h::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: url('../images/icon-home.svg') center / contain no-repeat;
+  flex-shrink: 0;
+}
+
+.sub-m-p::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: url('../images/icon-pin.svg') center / contain no-repeat;
+  flex-shrink: 0;
+}
+
+.sub-m-p::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: url('../images/m-close.svg') center / contain no-repeat;
+  flex-shrink: 0;
+}
+
+.sub-m-h.on,
+.sub-m-p.on {
+  color: #19289A;
+  font-weight: 600;
+  background-color: #e8edf8;
+}
+
+/* 오른쪽 collapse 버튼 */
+.sub-c {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

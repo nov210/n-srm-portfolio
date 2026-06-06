@@ -1,0 +1,61 @@
+/* ============================================================
+   common.css — 전체 페이지 공통 기본값
+   ------------------------------------------------------------
+   목적:
+   1) 메인/서브 페이지의 브라우저 기본 여백 차이를 제거
+   2) header.html을 어느 페이지에서 불러와도 같은 위치/높이로 보이게 통일
+   3) 1280 최소 너비 / 높이 750px 프레임(세로만 제한)
+   ============================================================ */
+
+/* 모든 요소의 기본 박스 계산/여백을 통일합니다. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --app-frame-height: 750px;
+}
+
+html {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #d5dae6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  width: 100%;
+  min-width: 1280px;
+  height: var(--app-frame-height);
+  max-height: var(--app-frame-height);
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  background: #f4f6fb;
+  color: #1a1e2e;
+  font-size: 13px;
+  box-shadow: 0 0 0 1px rgba(16, 24, 44, 0.06), 0 16px 48px rgba(16, 24, 44, 0.1);
+}
+
+/* 페이지마다 링크/버튼 기본 스타일이 다르게 보이는 것을 방지합니다. */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

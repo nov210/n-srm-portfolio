@@ -1,0 +1,274 @@
+/* section 1 */
+.sc1 {
+  height: 673px;
+  overflow: hidden;
+  background: #0b1023;
+}
+
+.sc1-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 673px;
+  background: url("../images/hero-bg.png") center center / 1440px 673px no-repeat;
+}
+
+.sc1-in { height: 100%; position: relative; }
+
+.sc1-tx {
+  position: absolute;
+  left: 92px;
+  top: 206px;
+  color: #fff;
+}
+
+.sc1-tx h1 {
+  margin: 0;
+  font-size: 64px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.sc1-tx p {
+  margin: 18px 0 14px;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.sc1-tx i {
+  display: block;
+  width: 206px;
+  height: 1px;
+  background: rgba(217, 223, 236, 0.92);
+}
+
+/* section 2 */
+.sc2 {
+  background: var(--bg2);
+  padding: 85px 0 82px;
+}
+
+.sc2-in {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sc2-l { width: 760px; }
+
+.sc2-l h2 {
+  margin: 0 0 16px;
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.sc2-l .p {
+  margin: 0 0 30px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--sub);
+}
+
+.sc2-l dl { margin: 0; }
+
+.sc2-l dt {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sc2-l dd {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--sub);
+}
+
+.sc2-r {
+  width: 360px;
+  position: relative;
+}
+
+.lg {
+  width: 257px;
+  height: 257px;
+  margin: 0 auto;
+  border-radius: 80px;
+  background: var(--dp);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 800;
+  animation: lg-f 2s ease-in-out infinite;
+}
+
+@keyframes lg-f {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.info {
+  margin-top: 34px;
+}
+
+.info strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.info p {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--sub);
+}
+
+/* section 3 */
+.sc3 {
+  background: var(--bg3);
+  padding: 84px 0 92px;
+}
+
+.sc3 h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.sc3 .sub {
+  width: 860px;
+  margin: 10px auto 32px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.5;
+}
+
+.cmp {
+  position: relative;
+  width: 1304px;
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e1e4ed;
+  background: #fff;
+}
+
+.cmp img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.af-bx {
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.af {
+  width: 1304px;
+  max-width: none;
+}
+
+.hd {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: #fff;
+  color: #4f5567;
+  font-size: 22px;
+  font-weight: 700;
+  z-index: 3;
+  box-shadow: -1.6px 3.2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hd::before,
+.hd::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 6px;
+  margin-left: -3px;
+  background: #fff;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hd::before {
+  top: -272px;
+  height: 272px;
+}
+
+.hd::after {
+  bottom: -272px;
+  height: 272px;
+}
+
+/* section 4 */
+.sc4 {
+  background: #fff;
+  padding: 92px 0 120px;
+}
+
+.vd-box {
+  position: relative;
+  width: 1080px;
+  height: 614px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+}
+
+.vd-el {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.vd-ov {
+  position: absolute;
+  inset: 0;
+  background: #1e1e1e;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.vd-ov.is-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vd-ov strong {
+  display: block;
+  padding-top: 280px;
+  text-align: center;
+  font-size: 56px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.vd-ov span {
+  display: block;
+  margin-top: 14px;
+  text-align: center;
+  color: #a8adba;
+  font-size: 16px;
+}

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N-SRM — Portfolio View</title>
+<link rel="preload" as="image" href="images/hero-bg.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/dashboard22-after.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="css/pv.css?v=45">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     SEC 1 — HERO
+     ════════════════════════════════════════ -->
+<section class="ph">
+  <div class="ph-bg"></div>
+  <div class="ph-ct">
+    <h1 class="ph-t">N-SRM</h1>
+    <p class="ph-sub">복잡한 업무 시스템을<br>사용자의 흐름에 맞게 재구성하다</p>
+    <div class="ph-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 2 — PROJECT OVERVIEW
+     ════════════════════════════════════════ -->
+<section class="po rv">
+  <div class="pw">
+    <div class="po-box">
+      <div class="po-l">
+        <h2>Project Overview</h2>
+        <p class="po-desc">N-SRM은 삼성전자의 차세대 통합 구매관리 시스템으로, 기존 G-SRM을 대체하여 글로벌 협력사 관리, 구매 프로세스 운영, 리스크 모니터링을 하나의 플랫폼에서 수행하는 사내 바이어 전용 포털입니다. DX(디바이스)와 DS(반도체) 부문으로 분리 운영되며, MFA 인증과 대용량 데이터 처리를 강화했습니다.</p>
+
+        <div class="po-f po-gap">
+          <h4>My Role:</h4>
+          <p>Lead Product Designer로서 정보 구조 재설계, UI 시스템 구축, 디자인 의사결정 전반을 주도했습니다.<br>본 케이스는 사내 바이어(구매 담당자) 시점에 집중하며, 한 페르소나의 동선을 끝까지 따라가는 의사결정의 일관성에 초점을 두었습니다.</p>
+        </div>
+
+        <div class="po-f po-gap">
+          <h4>Company Type:</h4>
+          <p>Samsung Electronics / 글로벌 제조 전자</p>
+        </div>
+
+        <div class="po-f po-gap">
+          <h4>Target Users:</h4>
+          <ul>
+            <li>사내 구매 담당자 (Buyer)</li>
+            <li>구매팀 책임 / 파트장</li>
+            <li>구매 운영 관리자 (Admin)</li>
+          </ul>
+        </div>
+
+        <div class="po-f full">
+          <h4>Business & User Pain Point:</h4>
+          <p>기존 G-SRM은 메뉴 나열식 구조로, 로그인 후 오늘 처리할 업무를 파악하려면 여러 화면을 직접 찾아다녀야 했습니다. 히어로 배너가 viewport 30%를 차지하고, 필터는 13개가 평면 나열되어 있어 인지 부하가 컸으며, 컬러는 장식용으로만 사용되어 긴급도나 상태를 시각적으로 구분할 수 없었습니다.</p>
+        </div>
+      </div>
+
+      <div class="po-r">
+        <div class="po-logo">
+          <span>N-SRM</span>
+        </div>
+        <div class="po-info">
+          <h4>Project Info:</h4>
+          <p>Period | 2024.08 – 2025.08</p>
+          <p>Role | Lead Product Designer</p>
+          <p>Platform | Web Portal</p>
+          <p>Scope | IA · UX Strategy · UI Design · Design System</p>
+          <p>Team | PM 1 · Designer 2 · FE 3 · BE 200~</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 2.5 — KEY DESIGN DECISIONS
+     ════════════════════════════════════════ -->
+<section class="dd rv">
+  <div class="pw">
+    <div class="dd-hd rv-up rv-s1">
+      <h2 class="dd-title">Key Design Decisions</h2>
+      <p class="dd-sub">기존 시스템의 구조적 문제를 분석하고, 각 문제에 대한 설계 판단과 개선 방향을 정리했습니다.</p>
+    </div>
+
+    <div class="dd-grid rv-up rv-s2">
+
+      <article class="dd-card">
+        <div class="dd-card-head">
+          <span class="dd-num">01</span>
+          <div class="dd-card-meta">
+            <h3 class="dd-card-title">업무 진입 구조</h3>
+            <p class="dd-card-sub">첫 화면에서 핵심 업무에 빠르게 접근할 수 있도록 재구성</p>
+          </div>
+        </div>
+        <div class="dd-flow">
+          <div class="dd-box dd-box-p">
+            <p class="dd-box-label">Problem</p>
+            <p class="dd-box-txt">메뉴가 나열되어<br>업무 진입이 어려움</p>
+          </div>
+          <img class="dd-arr" src="images/dd-arrow.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-d">
+            <p class="dd-box-label">Decision</p>
+            <p class="dd-box-txt">사용자 역할별<br>오늘의 업무를 우선 노출</p>
+          </div>
+          <img class="dd-arr dd-arr-b" src="images/dd-arrow-2.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-o">
+            <p class="dd-box-label">Outcome</p>
+            <p class="dd-box-txt">대시보드 중심<br>진입구조</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="dd-card">
+        <div class="dd-card-head">
+          <span class="dd-num">02</span>
+          <div class="dd-card-meta">
+            <h3 class="dd-card-title">탐색 구조</h3>
+            <p class="dd-card-sub">필요한 정보를 빠르고 정확하게 탐색할 수 있도록 설계</p>
+          </div>
+        </div>
+        <div class="dd-flow">
+          <div class="dd-box dd-box-p">
+            <p class="dd-box-label">Problem</p>
+            <p class="dd-box-txt">필터가 많아<br>탐색 부담 증가</p>
+          </div>
+          <img class="dd-arr" src="images/dd-arrow.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-d">
+            <p class="dd-box-label">Decision</p>
+            <p class="dd-box-txt">1차 필터와<br>상세 필터를 분리</p>
+          </div>
+          <img class="dd-arr dd-arr-b" src="images/dd-arrow-2.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-o">
+            <p class="dd-box-label">Outcome</p>
+            <p class="dd-box-txt">점진적<br>필터 탐색</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="dd-card">
+        <div class="dd-card-head">
+          <span class="dd-num">03</span>
+          <div class="dd-card-meta">
+            <h3 class="dd-card-title">상태 인지</h3>
+            <p class="dd-card-sub">중요 상태를 빠르게 식별하고 인지 부담을 줄이는 방향으로 설계</p>
+          </div>
+        </div>
+        <div class="dd-flow">
+          <div class="dd-box dd-box-p">
+            <p class="dd-box-label">Problem</p>
+            <p class="dd-box-txt">상태 구분이<br>컬러에만 의존</p>
+          </div>
+          <img class="dd-arr" src="images/dd-arrow.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-d">
+            <p class="dd-box-label">Decision</p>
+            <p class="dd-box-txt">라벨, 수치,<br>우선순위를 병행</p>
+          </div>
+          <img class="dd-arr dd-arr-b" src="images/dd-arrow-2.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-o">
+            <p class="dd-box-label">Outcome</p>
+            <p class="dd-box-txt">인지 부담<br>감소</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="dd-card">
+        <div class="dd-card-head">
+          <span class="dd-num">04</span>
+          <div class="dd-card-meta">
+            <h3 class="dd-card-title">정보 위계</h3>
+            <p class="dd-card-sub">핵심 정보는 빠르게, 상세 정보는 필요 시 확인할 수 있도록 구성</p>
+          </div>
+        </div>
+        <div class="dd-flow">
+          <div class="dd-box dd-box-p">
+            <p class="dd-box-label">Problem</p>
+            <p class="dd-box-txt">협력사 정보가<br>테이블에 밀집</p>
+          </div>
+          <img class="dd-arr" src="images/dd-arrow.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-d">
+            <p class="dd-box-label">Decision</p>
+            <p class="dd-box-txt">요약 카드와<br>상세 정보를 분리</p>
+          </div>
+          <img class="dd-arr dd-arr-b" src="images/dd-arrow-2.svg" alt="" aria-hidden="true" width="24" height="24">
+          <div class="dd-box dd-box-o">
+            <p class="dd-box-label">Outcome</p>
+            <p class="dd-box-txt dd-box-txt-lg">빠른 판단<br>지원</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="dd-foot rv-up rv-s3">*실제 운영 데이터와 내부 정책 정보는 보안상 비식별 처리했으며, 포트폴리오에서는 정보 구조, 업무 흐름, 컴포넌트 설계 방식 중심으로 재구성했습니다.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 3 — BA 타이틀 + 브라우저 목업
+     ════════════════════════════════════════ -->
+<section class="pb rv">
+  <div class="pw">
+    <div class="pb-hd">
+      <h2 class="pb-t">N-SRM 바이어 포털 리디자인</h2>
+      <p class="pb-sub">명확한 동선, 즉각적인 인지, 효율적인 운영</p>
+      <p class="pb-d">복잡한 메뉴 구조를 사용자의 하루 업무 흐름에 맞게 재구성하고, 정보 위계를 정리해 로그인 즉시 오늘의 업무를 파악할 수 있도록 했습니다.<br>시맨틱 컬러 시스템을 도입하고, 13개 필터를 3단 위계로 분리하며, 데이터 중심의 카드 UI로 전환했습니다.</p>
+    </div>
+
+    <div class="browser rv" id="baBr">
+      <div class="browser__toolbar" aria-hidden="true">
+        <span class="browser__dot browser__dot--close"></span>
+        <span class="browser__dot browser__dot--minimize"></span>
+        <span class="browser__dot browser__dot--expand"></span>
+      </div>
+      <div class="comparison" id="comparison">
+        <div class="comparison__layer comparison__after">
+          <img src="images/dashboard22-after.png" alt="After: 리디자인된 N-SRM 바이어 포털" draggable="false" fetchpriority="high" decoding="async">
+        </div>
+        <div class="comparison__layer comparison__before" id="beforeLayer">
+          <img data-src="images/dashboard22-before.jpg" alt="Before: 기존 N-SRM 바이어 포털" draggable="false" decoding="async">
+        </div>
+        <div class="comparison__handle" id="handle" aria-label="Before After 비교 핸들">
+          <div class="comparison__line"></div>
+          <div class="comparison__knob">
+            <div class="comparison__arrows">
+              <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 1L3 6l5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 4 — USER JOURNEY (Figma 0:10)
+     ════════════════════════════════════════ -->
+<section class="uj rv">
+  <div class="uj-top rv-up rv-s1">
+    <svg class="uj-chevron" width="44" height="24" viewBox="0 0 44 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M2 2L22 22L42 2" stroke="#B0B8D0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2 class="uj-main-title">정보를 찾는 포털에서, 업무를 안내하는 포털로</h2>
+  </div>
+  <div class="uj-in">
+    <article class="uj-bef">
+      <header class="uj-hd uj-hd-bef">
+        <span class="uj-badge uj-badge-bef">BEFORE</span>
+        <div class="uj-hd-txt">
+          <h2 class="uj-title">G-SRM: 동선 없음,</h2>
+          <p class="uj-sub uj-sub-bef">매일 스스로 찾아야 하는 업무</p>
+        </div>
+      </header>
+      <ul class="uj-qs">
+        <li class="uj-q" data-color="rd"><span class="uj-q-dot uj-dot-rd"></span><p>"로그인하면 히어로 이미지가 나오고 그 다음은?"</p></li>
+        <li class="uj-q" data-color="rd"><span class="uj-q-dot uj-dot-rd"></span><p>"오늘 마감인 건이 있는지 어떻게 알지?"</p></li>
+        <li class="uj-q" data-color="am"><span class="uj-q-dot uj-dot-am"></span><p>"내 담당 협력사만 보려면 필터를 다 열어야 하나?"</p></li>
+        <li class="uj-q" data-color="pp"><span class="uj-q-dot uj-dot-pp"></span><p>"뉴스레터가 어디 있는지 매번 찾아야 해"</p></li>
+        <li class="uj-q" data-color="rd"><span class="uj-q-dot uj-dot-rd"></span><p>"이번 주 일정을 한눈에 볼 수 없음"</p></li>
+        <li class="uj-q" data-color="bl"><span class="uj-q-dot uj-dot-bl"></span><p>"메뉴는 있는데 지금 뭘 해야 하는지 모름"</p></li>
+      </ul>
+    </article>
+
+    <img class="uj-arrow" src="images/uj-arrow.svg" alt="" aria-hidden="true">
+
+    <article class="uj-aft">
+      <header class="uj-hd uj-hd-aft">
+        <span class="uj-badge uj-badge-aft">AFTER</span>
+        <div class="uj-hd-txt">
+          <h2 class="uj-title">N-SRM : 김철수 책임의 하루</h2>
+          <p class="uj-sub">오늘 해야 할 업무가 시간순 운선순위로 자동 정렬됩니다.</p>
+        </div>
+      </header>
+
+      <div class="uj-cards">
+        <div class="uj-row">
+          <section class="uj-card uj-card-core">
+            <h3 class="uj-card-t"><span class="uj-card-dot uj-dot-rd"></span>오늘의 핵심업무</h3>
+            <ul class="uj-tasks">
+              <li class="uj-task">
+                <div class="uj-task-l">
+                  <span class="uj-ic uj-ic-rd"><img src="images/uj-ic-cal.svg" alt=""></span>
+                  <div class="uj-task-txt">
+                    <strong>오늘 마감</strong>
+                    <span>평가 2 | 승인 1 | 검수 2</span>
+                  </div>
+                </div>
+                <p class="uj-cnt uj-cnt-rd"><b>4</b><span class="uj-unit">건</span></p>
+              </li>
+              <li class="uj-task">
+                <div class="uj-task-l">
+                  <span class="uj-ic uj-ic-am"><img src="images/uj-ic-doc.svg" alt=""></span>
+                  <div class="uj-task-txt">
+                    <strong>승인 대기</strong>
+                    <span>신규공급사 2 | 견적 6 | 계약 3</span>
+                  </div>
+                </div>
+                <p class="uj-cnt uj-cnt-am"><b>3</b><span class="uj-unit">건</span></p>
+              </li>
+              <li class="uj-task">
+                <div class="uj-task-l">
+                  <span class="uj-ic uj-ic-gy"><img src="images/uj-ic-reply.svg" alt=""></span>
+                  <div class="uj-task-txt">
+                    <strong>보안 회신 대기</strong>
+                    <span>등록 1 | 계약 3</span>
+                  </div>
+                </div>
+                <p class="uj-cnt uj-cnt-gy"><b>12</b><span class="uj-unit">건</span></p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="uj-card uj-card-ins">
+            <h3 class="uj-card-t"><span class="uj-card-dot uj-dot-pp"></span>인사이트</h3>
+            <ul class="uj-ins">
+              <li class="uj-ins-i">
+                <div class="uj-ins-l">
+                  <span class="uj-ic uj-ic-pp"><b>N</b></span>
+                  <div class="uj-task-txt">
+                    <strong>News 리스트</strong>
+                    <span>업계·정책·시장 주요 뉴스</span>
+                  </div>
+                </div>
+                <span class="uj-upd">업데이트 30분 전</span>
+              </li>
+              <li class="uj-ins-i">
+                <div class="uj-ins-l">
+                  <span class="uj-ic uj-ic-pp"><img src="images/uj-ic-list.svg" alt=""></span>
+                  <div class="uj-task-txt">
+                    <strong>News 상세</strong>
+                    <span>관심 뉴스 심층 분석</span>
+                  </div>
+                </div>
+                <span class="uj-upd">업데이트 5분 전</span>
+              </li>
+              <li class="uj-ins-i">
+                <div class="uj-ins-l">
+                  <span class="uj-ic uj-ic-pp"><img src="images/uj-ic-mail.svg" alt=""></span>
+                  <div class="uj-task-txt">
+                    <strong>뉴스레터</strong>
+                    <span>시그니처 콘텐츠</span>
+                  </div>
+                </div>
+                <span class="uj-upd">업데이트 30분 전</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="uj-card uj-card-btm">
+          <div class="uj-brief">
+            <h3 class="uj-card-t"><span class="uj-card-dot uj-dot-bl"></span>오늘의 업무 브리핑</h3>
+            <p class="uj-brief-p">오늘은 <em>승인 요청 28건</em>을 먼저 처리하세요.<br>위험 협력사 3곳은 오전 중 점검이 필요합니다.<br>정책·시장 뉴스는 승인 처리 후 확인하면 됩니다.</p>
+            <div class="uj-tags">
+              <span class="uj-tag">승인 28건</span>
+              <span class="uj-tag">협력사 3곳</span>
+              <span class="uj-tag">뉴스 업데이트</span>
+            </div>
+          </div>
+          <img class="uj-div" src="images/uj-divider.png" alt="" aria-hidden="true">
+          <div class="uj-rec">
+            <h3 class="uj-card-t"><span class="uj-card-dot uj-dot-am"></span>추천순서</h3>
+            <ol class="uj-rec-l">
+              <li><span class="uj-num">1</span><span class="uj-rec-n">승인처리</span><span class="uj-rec-d">우선처리</span></li>
+              <li><span class="uj-num">2</span><span class="uj-rec-n">협력사 점검</span><span class="uj-rec-d">오전 점검</span></li>
+              <li><span class="uj-num">3</span><span class="uj-rec-n">뉴스 확인</span><span class="uj-rec-d">업무 전 참고</span></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 4.5 — MAIN DASHBOARD DETAIL
+     ════════════════════════════════════════ -->
+<section class="md rv">
+  <div class="pw">
+    <div class="md-layout">
+
+      <!-- 왼쪽: 텍스트 설명 -->
+      <div class="md-txt rv-up rv-s1">
+        <h2 class="md-title">Main Dashboard</h2>
+        <p class="md-sub">첫 화면의 카드 하나하나가 업무 깊이까지 연결되는 구조입니다.</p>
+
+        <div class="md-blocks">
+          <div class="md-block">
+            <div class="md-block-hd">
+              <span class="md-label md-label-core">Core</span>
+              <h4 class="md-block-title">업무 처리 플로우</h4>
+            </div>
+            <ul>
+              <li>오늘 마감 카드 클릭 시 긴급도 순 정렬된 업무 상세 팝업</li>
+              <li>설문 응답 현황과 마감 시한을 한 화면에서 확인·처리</li>
+              <li>미처리 건의 성과 지표 자동 반영으로 행동 유도</li>
+            </ul>
+          </div>
+          <div class="md-block md-block-support">
+            <div class="md-block-hd">
+              <span class="md-label md-label-support">Support</span>
+              <h4 class="md-block-title">시스템 전환, 거부감 대신 기대감으로</h4>
+            </div>
+            <p class="md-block-p">B2B 시스템 전환의 가장 큰 리스크는 사용자 저항이다. 오픈 공지만으로는 부족하다고 판단해, 커뮤니케이션 전략을 직접 기획·주도했다.</p>
+            <ul>
+              <li>캐릭터 웹툰 시리즈로 구축 과정 연재 → 사용자가 변화에 참여하는 감각 부여</li>
+              <li>단계별 뉴스레터로 오픈 일정·변경사항 사전 안내 → 점진적 적응 유도</li>
+            </ul>
+            <p class="md-block-p">화면 설계에서 끝나지 않고, 사용자가 새 시스템을 받아들이는 경험 자체를 설계했다.</p>
+          </div>
+          <div class="md-block">
+            <div class="md-block-hd">
+              <span class="md-label md-label-impact">Impact</span>
+              <h4 class="md-block-title">측정 가능한 변화</h4>
+            </div>
+            <ul>
+              <li>클릭 한 번으로 업무 상세까지 도달 — 화면 이동 최소화</li>
+              <li>마감 누락 방지와 응답률 향상</li>
+              <li>딱딱한 B2B 시스템 전환을 친근한 콘텐츠로 연착륙</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 가운데: 팝업 카드 2장 -->
+      <div class="md-center rv-up rv-s2">
+        <div class="md-card">
+          <img src="images/md-popup.png" alt="D-DAY 업무 처리 팝업" draggable="false" loading="lazy" decoding="async">
+        </div>
+        <div class="md-card">
+          <img src="images/md-survey.png" alt="협력사 만족도 조사 팝업" draggable="false" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- 오른쪽: 콘텐츠 & 웹툰 카드 -->
+      <div class="md-right rv-up rv-s3">
+        <img src="images/md-content.jpg" alt="콘텐츠 & 커뮤니케이션 — 웹툰 시리즈" draggable="false" loading="lazy" decoding="async">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 4.6 — SUPPLIER MANAGEMENT
+     ════════════════════════════════════════ -->
+<section class="sm rv">
+  <div class="sm-bg">
+    <img src="images/sm-bg.jpg" alt="" draggable="false" loading="lazy" decoding="async">
+  </div>
+  <div class="sm-ct">
+    <div class="sm-txt rv-up rv-s1">
+      <h2 class="sm-title">Supplier management</h2>
+      <p class="sm-desc">281개 협력사를 빠르게 탐색하고,<br>핵심 정보를 한눈에 파악하며, 즉시 수정할 수 있는<br>3단계 태스크 플로우</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 4.7 — SUPPLIER STEPS
+     ════════════════════════════════════════ -->
+<section class="sp rv">
+  <div class="pw">
+    <div class="sp-hd rv-up rv-s1">
+      <h2 class="sp-title">탐색에서 실행까지, 3클릭으로 완결되는 협력사 관리</h2>
+      <p class="sp-sub">수백 개 협력사 중 원하는 대상을 빠르게 찾고, 핵심 현황을 즉시 파악하며, 바로 수정할 수 있는 흐름을 설계했습니다.<br>검색 필터의 점진적 노출, 상단 요약 카드, 인라인 입력 가이드로 각 단계의 효율을 높였습니다.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="sp-card rv rv-slide">
+      <div class="sp-info">
+        <span class="sp-badge">Step 1</span>
+        <h3 class="sp-name">협력사 리스트</h3>
+        <p class="sp-desc">검색 조건 필터와 온라인 확장 행으로,<br>수백 개 협력사 중 원하는 대상을 빠르게 좁혀볼 수 있습니다.</p>
+        <div class="sp-point">
+          <div class="sp-point-hd">
+            <span class="sp-point-ic">💡</span>
+            <span class="sp-point-label">Design point</span>
+          </div>
+          <ul class="sp-checks">
+            <li>행 확장으로 상세 미리보기 → 불필요한 페이지 이동 감소</li>
+            <li>상세 페이지 진입 전 핵심 정보로 빠른 판단 지원</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-browser">
+          <div class="sp-dots"><span class="sp-dot sp-dot-r"></span><span class="sp-dot sp-dot-y"></span><span class="sp-dot sp-dot-g"></span></div>
+          <img src="images/sp-step1.jpg" alt="협력사 리스트 화면" draggable="false" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 (역배치) -->
+    <div class="sp-card sp-card-rev rv rv-slide">
+      <div class="sp-screen">
+        <div class="sp-browser">
+          <div class="sp-dots"><span class="sp-dot sp-dot-r"></span><span class="sp-dot sp-dot-y"></span><span class="sp-dot sp-dot-g"></span></div>
+          <img src="images/sp-step2.png" alt="협력사 상세 화면" draggable="false" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="sp-info">
+        <span class="sp-badge">Step 2</span>
+        <h3 class="sp-name">협력사 상세</h3>
+        <p class="sp-desc">거래 상태·평가 등급·납기 준수율·문서 상태를<br>상단 요약 카드로 즉시 파악할 수 있는 정보 계층 설계</p>
+        <div class="sp-point">
+          <div class="sp-point-hd">
+            <span class="sp-point-ic">💡</span>
+            <span class="sp-point-label">Design point</span>
+          </div>
+          <ul class="sp-checks">
+            <li>상단 4개 요약 카드로 거래 상태·등급 즉시 파악 → 스크롤 없이 핵심 인지</li>
+            <li>줌인 크롭으로 설계 의도를 명확하게 전달</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="sp-card rv rv-slide">
+      <div class="sp-info">
+        <span class="sp-badge">Step 3</span>
+        <h3 class="sp-name">협력사 수정</h3>
+        <p class="sp-desc">필수 입력 표시, 인라인 안내 텍스트,<br>자동 생성 코드 등 입력 오류를 줄이는 폼 설계</p>
+        <div class="sp-point">
+          <div class="sp-point-hd">
+            <span class="sp-point-ic">💡</span>
+            <span class="sp-point-label">Design point</span>
+          </div>
+          <ul class="sp-checks">
+            <li>필수(*) 마크 + 인라인 가이드 + 선택 제한 → 입력 오류를 구조적으로 차단</li>
+            <li>디테일 콜아웃으로 폼 UX 개선점을 시각적으로 강조</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-browser">
+          <div class="sp-dots"><span class="sp-dot sp-dot-r"></span><span class="sp-dot sp-dot-y"></span><span class="sp-dot sp-dot-g"></span></div>
+          <img src="images/sp-step3.png" alt="협력사 수정 화면" draggable="false" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 4.8 — DESIGN SYSTEM
+     ════════════════════════════════════════ -->
+<section class="ds rv">
+  <div class="pw">
+    <div class="ds-hd rv-up rv-s1">
+      <h2 class="ds-title">N-SRM Design System</h2>
+      <p class="ds-sub">깊은 네이비와 블루를 중심으로 한 시각 체계는 방대한 구매 업무 속에서 사용자의 집중을 돕고, 정보의 위계를 명확히 전달하며,<br>신뢰감 있는 엔터프라이즈 환경을 구현합니다. 2,400개 협력사를 다루는 복잡한 시스템 전반에 걸쳐 일관되고 확장 가능한 디자인 언어를 적용했습니다.</p>
+    </div>
+
+    <div class="ds-colors rv-up rv-s2">
+      <div class="ds-color" style="background:#1c2894;color:#fff">
+        <p class="ds-color-name">Navy</p>
+        <div class="ds-color-val">
+          <p>#19289A</p>
+          <p>--navy · Primary</p>
+        </div>
+      </div>
+      <div class="ds-color" style="background:#111a6a;color:#fff">
+        <p class="ds-color-name">Navy Deep</p>
+        <div class="ds-color-val">
+          <p>#0f1a6e</p>
+          <p>deep · Hover</p>
+        </div>
+      </div>
+      <div class="ds-color" style="background:#e3ebff;color:#303743">
+        <p class="ds-color-name">Blue Soft</p>
+        <div class="ds-color-val">
+          <p>#e8edf8</p>
+          <p>--blue-soft</p>
+        </div>
+      </div>
+      <div class="ds-color" style="background:#1a1e2e;color:#fff">
+        <p class="ds-color-name">Text 1</p>
+        <div class="ds-color-val">
+          <p>#1a1e2e</p>
+          <p>--t1</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-btn-wrap rv-up rv-s3">
+      <a href="https://nsrm-designsystem.vercel.app" class="ds-btn" id="dsBtnLink">
+        <span>디자인 시스템 자세히보기</span>
+        <img src="images/ds-btn-arrow.svg" alt="" aria-hidden="true" width="6" height="12">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 5 — LIVE DEMO (N-SRM Framed)
+     ════════════════════════════════════════ -->
+<section class="demo-sec rv">
+  <div class="pw">
+    <div class="demo-wrap">
+      <iframe class="demo-frame" data-src="nsrm/frame.html?v=8" scrolling="no" allowfullscreen></iframe>
+    </div>
+    <div class="demo-info">
+      <p class="demo-desc">복잡한 협력사 관리 업무를 직관적인 하나의 화면에서.<br>N-SRM은 승인 처리, 협력사 점검, 정보 수정 등 구매 담당자의 일상 업무를 자연스러운 흐름으로 재설계한 플랫폼입니다.</p>
+      <p class="demo-note">※ 보안상 실제 데이터와 내부 정책 정보는 제외하고, 주요 화면 구조와 업무 흐름만 샘플로 재구성했습니다.</p>
+      <a href="https://co210.dothome.co.kr/" target="_blank" rel="noopener" class="demo-btn">
+        <span class="demo-btn-txt">전체화면으로 보기</span>
+        <svg class="demo-btn-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 6 — PROJECT COMMUNICATION
+     ════════════════════════════════════════ -->
+<section class="pc rv">
+  <div class="pw">
+    <div class="pc-hd rv-up rv-s1">
+      <h2 class="pc-title">Project Communication</h2>
+      <p class="pc-sub">B2B 시스템 전환에서 가장 큰 리스크는 사용자 저항입니다.<br>단계별 뉴스레터를 직접 기획·디자인해, 오픈 전 기능 미리보기 → 전환 일정 안내 → Risk 대응 체계 공유 순서로 점진적 적응을 유도했습니다.</p>
+    </div>
+  </div>
+  <div class="pc-marquee rv-up rv-s2" aria-label="N-SRM 프로젝트 커뮤니케이션 뉴스레터">
+    <div class="pc-track">
+      <div class="pc-card"><img src="images/event_01.png" width="260" height="900" alt="N-SRM 1단계 OPEN M-4 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card"><img src="images/event_02.png" width="260" height="900" alt="Next SRM OPEN 안내 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card"><img src="images/event_03.png" width="260" height="900" alt="2단계 오픈까지 무사히 마친 N-SRM 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card"><img src="images/event_04.png" width="260" height="900" alt="N-SRM 3단계 오픈 COMING SOON 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card"><img src="images/event_05.png" width="260" height="900" alt="DX N-SRM 1단계 오픈 주요 안내 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card"><img src="images/event_06.png" width="260" height="900" alt="N-SRM Risk 대응 체계 뉴스레터" draggable="false" decoding="async" loading="lazy"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_01.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_02.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_03.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_04.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_05.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+      <div class="pc-card" aria-hidden="true"><img src="images/event_06.png" width="260" height="900" alt="" draggable="false" decoding="async"><span class="pc-overlay" aria-hidden="true"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SEC 7 — IMPACT
+     ════════════════════════════════════════ -->
+<section class="imp rv">
+  <div class="pw">
+    <div class="imp-hd rv-up rv-s1">
+      <h2 class="imp-title">Impact</h2>
+      <p class="imp-sub">보안상 절대 수치는 공개하지 않으며, 내부 검증 기준의 상대적 개선폭만 표기했습니다.</p>
+    </div>
+    <div class="imp-cards rv-up rv-s2">
+      <div class="imp-card">
+        <p class="imp-num">약 40<span class="imp-unit">%</span></p>
+        <p class="imp-label">업무 파악 시간 단축</p>
+        <p class="imp-detail">사용자 테스트 기준 · 로그인 후 오늘 할 일 확인까지의 평균 소요 시간</p>
+      </div>
+      <div class="imp-card">
+        <p class="imp-num">최대 60<span class="imp-unit">%</span></p>
+        <p class="imp-label">필터 조작 횟수 감소</p>
+        <p class="imp-detail">13개 평면 필터 → 3단 위계 전환 후 주요 검색 시나리오 기준</p>
+      </div>
+      <div class="imp-card">
+        <p class="imp-num">2.5<span class="imp-unit">×</span></p>
+        <p class="imp-label">마감 응답률 향상</p>
+        <p class="imp-detail">D-Day 카드 + 자동 알림 도입 후 설문/평가 마감 준수율 비교</p>
+      </div>
+      <div class="imp-card">
+        <p class="imp-num">3<span class="imp-unit">단계</span></p>
+        <p class="imp-label">협력사 관리 완결</p>
+        <p class="imp-detail">탐색 → 상세 → 수정까지 3클릭 내 완료되는 태스크 플로우</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pf">N-SRM Portfolio · 2026 · Confidential</footer>
+
+<script src="js/pv.js?v=12"></script>
+</body>
+</html>

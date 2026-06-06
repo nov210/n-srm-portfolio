@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=1280">
+<title>N-SRM — 협력사 정보 수정</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="css/common.css?v=8">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/supplier_edit.css">
+<link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body data-gnb="supplier" data-sub-active="supplier_edit">
+
+<!-- 공통 헤더 -->
+<div id="header"></div>
+
+<!-- ============================================================ -->
+<!-- BODY : 본문                                                  -->
+<!-- ============================================================ -->
+<div class="body">
+
+	<!-- 협력사 요약 헤더 (detail.html과 동일) -->
+	<div class="detail-header">
+		<div class="detail-header-top">
+
+			<div class="detail-header-left">
+				<!-- 협력사명 + 코드 -->
+				<div class="detail-title-row">
+					<div class="detail-company-name">SAMSUNG ELECTRONICS EGYPT S.A.E</div>
+					<span class="detail-code">712B-A1</span>
+					<span class="status-b status-reg">정규</span>
+					<span class="status-b status-normal"><i class="fa-solid fa-circle-check" style="font-size:10px;"></i> Block N</span>
+					<span class="status-b status-size">대기업</span>
+				</div>
+
+				<!-- 메타 정보 -->
+				<div class="detail-meta">
+					<div class="detail-meta-item"><i class="fa-solid fa-location-dot"></i> 이집트 · 제조협력사 · 전자</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-regular fa-calendar"></i> 거래개시일 2018.03.12</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-solid fa-building"></i> 사내거래업체</div>
+					<div class="detail-meta-sep"></div>
+					<div class="detail-meta-item"><i class="fa-solid fa-star" style="color:#f59e0b;"></i> 즐겨찾기 등록됨</div>
+				</div>
+			</div>
+
+			<!-- 액션 버튼 -->
+			<div class="detail-actions">
+				<button class="det-btn" id="cancelBtn"><i class="fa-solid fa-arrow-left"></i> 돌아가기</button>
+				<span class="hs-wrap detail-edit-wrap">
+					<button class="det-btn primary" id="saveBtn" type="button" data-demo-target="supplier-save-btn" aria-label="변경사항 저장">
+						<i class="fa-solid fa-check"></i> 저장
+					</button>
+					<span class="hs hs-page"><span class="hs-tip">저장하기</span></span>
+				</span>
+			</div>
+
+		</div>
+	</div><!-- //detail-header -->
+
+
+	<!-- 폼 컨테이너 -->
+	<form id="editForm" class="edit-form">
+
+		<!-- 섹션 1: 기본 정보 -->
+		<div class="form-section">
+			<div class="form-section-title">◉ 기본 정보</div>
+			<div class="form-section-body">
+
+				<div class="form-grid-2">
+
+					<div class="form-col">
+						<div class="form-group">
+							<label class="form-label">협력사명 (Eng) <span class="req">*</span></label>
+							<input type="text" class="f-input readonly" value="SAMSUNG ELECTRONICS EGYPT S.A.E" readonly disabled>
+							<div class="form-help">협력사명은 변경할 수 없습니다</div>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">대표자명 <span class="req">*</span></label>
+							<input type="text" class="f-input" id="ceoName" name="ceoName" value="kinam lee" placeholder="대표자명을 입력하세요" required>
+							<div class="form-help">예: Hong Gildong</div>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">설립연도 <span class="req">*</span></label>
+							<input type="text" class="f-input" id="foundYear" name="foundYear" value="2003" placeholder="YYYY" pattern="^\d{4}$" required>
+							<div class="form-help">4자리 숫자로 입력하세요 (예: 2003)</div>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">국가 / 지역 <span class="req">*</span></label>
+							<select class="fs" id="country" name="country" required>
+								<option value="">선택하세요</option>
+								<option value="korea">한국</option>
+								<option value="usa">미국</option>
+								<option value="japan">일본</option>
+								<option value="china">중국</option>
+								<option value="vietnam">베트남</option>
+								<option value="egypt" selected>이집트</option>
+								<option value="other">기타</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-col">
+						<div class="form-group">
+							<label class="form-label">협력사 코드 <span class="req">*</span></label>
+							<input type="text" class="f-input readonly" value="712B-A1" readonly disabled>
+							<div class="form-help">시스템에서 자동 생성됩니다</div>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">업태 / 업종 <span class="req">*</span></label>
+							<select class="fs" id="businessType" name="businessType" required>
+								<option value="">선택하세요</option>
+								<option value="manufacturing" selected>제조협력사 / 전자</option>
+								<option value="logistics">물류협력사</option>
+								<option value="service">서비스협력사</option>
+								<option value="other">기타</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">약어</label>
+							<input type="text" class="f-input" id="abbr" name="abbr" value="SAMSUNG ELECTR…" placeholder="약어를 입력하세요">
+							<div class="form-help">선택사항</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 섹션 2: 분류 및 운영 상태 -->
+		<div class="form-section">
+			<div class="form-section-title">◉ 분류 및 운영 상태</div>
+			<div class="form-section-body">
+
+				<div class="form-grid-2">
+
+					<div class="form-col">
+						<div class="form-group">
+							<label class="form-label">한국계 여부 <span class="req">*</span></label>
+							<div class="f-chk-row">
+								<input type="radio" id="koreaY" name="koreaYn" value="Y" checked>
+								<label for="koreaY" class="f-chk-lbl">Yes (한국계)</label>
+							</div>
+							<div class="f-chk-row">
+								<input type="radio" id="koreaNo" name="koreaYn" value="N">
+								<label for="koreaNo" class="f-chk-lbl">No (외국계)</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">위탁생산 <span class="req">*</span></label>
+							<div class="f-chk-row">
+								<input type="radio" id="outsourcingNo" name="outsourcingYn" value="N" checked>
+								<label for="outsourcingNo" class="f-chk-lbl">No (자체생산)</label>
+							</div>
+							<div class="f-chk-row">
+								<input type="radio" id="outsourcingYes" name="outsourcingYn" value="Y">
+								<label for="outsourcingYes" class="f-chk-lbl">Yes (위탁생산)</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-col">
+						<div class="form-group">
+							<label class="form-label">Block 여부 <span class="req">*</span></label>
+							<div class="f-chk-row">
+								<input type="radio" id="blockNo" name="blockYn" value="N" checked>
+								<label for="blockNo" class="f-chk-lbl">N (정상)</label>
+							</div>
+							<div class="f-chk-row">
+								<input type="radio" id="blockYes" name="blockYn" value="Y">
+								<label for="blockYes" class="f-chk-lbl">Y (차단)</label>
+							</div>
+							<div class="form-help">Y 선택 시 모든 거래가 중단됩니다</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+</div><!-- //body -->
+
+
+
+<script src="js/include.js"></script>
+
+<script>
+const editForm = document.getElementById('editForm');
+const cancelBtn = document.getElementById('cancelBtn');
+const saveBtn = document.getElementById('saveBtn');
+
+cancelBtn.addEventListener('click', function() {
+	if (editForm.dataset.changed === 'true') {
+		if (!confirm('저장하지 않은 변경사항이 있습니다. 정말 돌아가시겠습니까?')) {
+			return;
+		}
+	}
+	history.back();
+});
+
+editForm.addEventListener('change', function() {
+	this.dataset.changed = 'true';
+});
+
+editForm.addEventListener('input', function() {
+	this.dataset.changed = 'true';
+});
+
+saveBtn.addEventListener('click', function(e) {
+	e.preventDefault();
+	if (!editForm.checkValidity()) {
+		alert('필수 항목을 모두 입력해주세요');
+		return;
+	}
+
+	const originalText = saveBtn.innerHTML;
+	saveBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 저장 중...';
+	saveBtn.disabled = true;
+
+	setTimeout(() => {
+		const formData = new FormData(editForm);
+		localStorage.setItem('supplier_edit_data', JSON.stringify(Object.fromEntries(formData)));
+		
+		editForm.dataset.changed = 'false';
+
+		// 성공 페이지로 이동
+		window.location.href = 'nsrm_supplier_edit_success.html';
+
+		saveBtn.innerHTML = originalText;
+		saveBtn.disabled = false;
+	}, 800);
+});
+</script>
+
+<div class="login-demo-cursor is-hidden" id="loginDemoCursor" aria-hidden="true">
+  <span class="login-cursor-ibeam"></span>
+  <img src="images/pointer.png" alt="" class="login-cursor-pointer" />
+</div>
+<script src="js/demo-control.js?v=8"></script>
+<script src="js/demo-flow.js?v=8"></script>
+
+</body>
+</html>

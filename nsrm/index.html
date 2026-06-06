@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta http-equiv="Pragma" content="no-cache">
+  <meta name="viewport" content="width=1280">
+  <title>N-SRM — 로그인</title>
+  <link rel="preload" href="images/login-bg2.png" as="image" fetchpriority="high">
+  <link rel="preload" href="images/pointer.png" as="image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="css/login.css?v=8">
+  <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body class="login-page">
+
+  <!-- 로딩 오버레이 -->
+  <div class="loading hide" id="loading">
+    <div class="loading-logo">
+    <!--  <img src="images/icon-login-logo.svg" alt=""> -->
+      <span>N-SRM</span>
+    </div>
+    <div class="loading-bar-wrap">
+      <div class="loading-bar" id="loadBar"></div>
+    </div>
+    <div class="loading-msg">시스템에 접속 중입니다...</div>
+  </div>
+
+  <!-- 왼쪽: 타이틀 -->
+  <div class="login-title">
+    <div class="brand-title">N-SRM</div>
+    <div class="brand-subtitle">Purchasing the Future<br>Connecting New Value</div>
+  </div>
+
+  <!-- 오른쪽: 로그인 카드 -->
+  <section class="login-card">
+    <h2 class="card-title">로그인</h2>
+    <p class="card-sub">사번 또는 이메일로 접속하세요</p>
+
+    <div class="field">
+      <div class="field-box">
+        <input id="userId" class="field-input" type="text" placeholder="ID">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-box">
+        <input id="userPw" class="field-input" type="password" placeholder="PASSWORD">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <label class="field-chk">
+        <input type="checkbox" checked>
+        <span>로그인 상태 유지</span>
+      </label>
+      <a href="#none" class="field-link">비밀번호 찾기</a>
+    </div>
+
+    <button type="button" class="btn-login" id="btnLogin">
+      <span>로그인</span>
+    </button>
+
+    <div class="or-row">
+      <div class="or-line"></div>
+      <span class="or-text">또는</span>
+      <div class="or-line"></div>
+    </div>
+
+    <button type="button" class="btn-sso" id="btnSso">
+      <!-- <img src="images/icon-sso.svg" alt=""> -->
+      <span>삼성 통합 계정(SSO)으로 로그인</span>
+    </button>
+
+    <div class="card-footer">
+      <a href="#none" class="footer-link">이용약관</a>
+      <span class="footer-sep">·</span>
+      <a href="#none" class="footer-link">개인정보처리방침</a>
+      <span class="footer-sep">·</span>
+      <a href="#none" class="footer-link">보안정책</a>
+      <span class="footer-sep">·</span>
+      <a href="#none" class="footer-link footer-conf">Confidential</a>
+    </div>
+  </section>
+
+  <div id="layerRoot"></div>
+
+  <div class="login-demo-cursor is-hidden" id="loginDemoCursor" aria-hidden="true">
+    <span class="login-cursor-ibeam" id="loginCursorText"></span>
+    <img src="images/pointer.png" alt="" class="login-cursor-pointer" id="loginCursorPointer" />
+  </div>
+
+  <script src="js/demo-control.js?v=8"></script>
+  <script src="js/login.js?v=8"></script>
+</body>
+</html>

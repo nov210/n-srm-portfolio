@@ -1,0 +1,522 @@
+/* ============================================================
+   design-system.css — N-SRM 디자인 시스템 문서 페이지 전용
+   ============================================================ */
+
+/* 서비스 CSS의 min-width:1280px 무효화 */
+html.ds-html {
+  min-width: 0 !important;
+  width: 100%;
+  background: #dfe3ef;
+}
+
+/* body만 콘텐츠(828px) 너비 → 뷰포트 가운데 정렬 */
+html.ds-html body.ds-body {
+  min-width: 0 !important;
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  background: transparent;
+  color: #1a1e2e;
+  overflow-x: auto;
+}
+
+body.ds-body button:disabled,
+body.ds-body .ph-btn:disabled,
+body.ds-body .det-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ds-app {
+  display: grid;
+  grid-template-columns: 188px 640px;
+  width: 828px;
+  max-width: 828px;
+  min-height: calc(100vh - 32px);
+  flex-shrink: 0;
+  background: #f4f6fb;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(25, 40, 154, 0.1);
+  overflow: visible;
+  align-items: start;
+}
+
+/* ── 사이드바 (sticky는 overflow:hidden 조상에서 동작 안 함) ── */
+.ds-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid #e2e6f0;
+  border-radius: 10px 0 0 10px;
+  padding: 16px 0 24px;
+  z-index: 100;
+}
+
+.ds-sidebar .ds-nav a {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.ds-brand {
+  padding: 0 14px 12px;
+  border-bottom: 1px solid #eef0f6;
+  margin-bottom: 10px;
+}
+
+.ds-brand-tag {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #e8edf8;
+  color: #19289a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ds-brand-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a1e2e;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.ds-brand-sub {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #9aa0b4;
+  line-height: 1.4;
+}
+
+.ds-nav {
+  list-style: none;
+  padding: 0 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ds-nav a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #5a6280;
+  transition: background 0.12s, color 0.12s;
+}
+
+.ds-nav a:hover {
+  background: #f4f6fb;
+  color: #19289a;
+}
+
+.ds-nav a.is-active {
+  background: #e8edf8;
+  color: #19289a;
+  font-weight: 700;
+}
+
+.ds-nav-group {
+  margin: 10px 10px 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c4c8d6;
+}
+
+.ds-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 14px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #19289a;
+}
+
+.ds-back:hover {
+  opacity: 0.8;
+}
+
+/* ── 메인 ── */
+.ds-main {
+  width: 640px;
+  max-width: 640px;
+  min-width: 640px;
+  padding: 18px 20px 40px;
+  overflow-x: hidden;
+  background: #f4f6fb;
+  border-radius: 0 10px 10px 0;
+}
+
+.ds-hero {
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #19289a 0%, #2d3fb8 55%, #4a5fd4 100%);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(25, 40, 154, 0.2);
+}
+
+.ds-hero h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.ds-hero p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.ds-section {
+  scroll-margin-top: 16px;
+  margin-bottom: 28px;
+}
+
+.ds-section-head {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e6f0;
+}
+
+.ds-section-head h2 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1a1e2e;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.ds-section-head p {
+  font-size: 12px;
+  color: #9aa0b4;
+  line-height: 1.4;
+}
+
+.ds-block {
+  margin-bottom: 14px;
+}
+
+.ds-block-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5a6280;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ds-panel {
+  background: #fff;
+  border: 1px solid #e2e6f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.ds-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.ds-row-start {
+  align-items: flex-start;
+}
+
+.ds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ds-gap-lg {
+  gap: 12px;
+}
+
+/* ── 색상 팔레트 ── */
+.ds-palette {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.ds-swatch {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e6f0;
+  background: #fff;
+}
+
+.ds-swatch-color {
+  height: 48px;
+}
+
+.ds-swatch-meta {
+  padding: 6px 8px;
+}
+
+.ds-swatch-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1e2e;
+  margin-bottom: 2px;
+}
+
+.ds-swatch-hex {
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #9aa0b4;
+}
+
+.ds-swatch-token {
+  font-size: 10px;
+  color: #c4c8d6;
+  margin-top: 2px;
+}
+
+/* ── 타이포 샘플 ── */
+.ds-type-sample {
+  padding: 10px 0;
+  border-bottom: 1px solid #eef0f6;
+}
+
+.ds-type-sample:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ds-type-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #9aa0b4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ── 버튼 상태 데모 ── */
+.ds-btn-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.ds-btn-label {
+  font-size: 11px;
+  color: #9aa0b4;
+  font-weight: 600;
+}
+
+.ds-btn-demo.is-hover-demo .ph-btn.primary,
+.ds-btn-demo.is-hover-demo .det-btn.primary {
+  background: #0f1a6e;
+  border-color: #0f1a6e;
+}
+
+/* ── 폼 그리드 ── */
+.ds-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+
+.ds-form-grid .fc-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── 카드 프리뷰 ── */
+.ds-card-preview .kpi-grid {
+  margin-top: 0;
+  max-width: 320px;
+}
+
+.ds-card-preview .summary-row {
+  margin-top: 0;
+  max-width: 100%;
+}
+
+.ds-card-preview .fc {
+  max-width: 100%;
+}
+
+.ds-card-preview .summary-row,
+.ds-card-preview .fc,
+.ds-card-preview .kpi-grid {
+  max-width: 100%;
+}
+
+/* ── 모달 프리뷰 스테이지 ── */
+.ds-modal-stage {
+  position: relative;
+  min-height: 260px;
+  border-radius: 12px;
+  background: #eef1f8;
+  border: 1px dashed #c4c8d6;
+  overflow: hidden;
+}
+
+.ds-modal-stage .pop-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  padding: 16px;
+}
+
+.ds-modal-stage .pop-overlay.open {
+  display: flex;
+}
+
+.ds-modal-stage .pop-panel {
+  width: 100%;
+  max-width: 480px;
+  max-height: 100%;
+}
+
+.ds-modal-trigger {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* ── 레이아웃 스펙 ── */
+.ds-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ds-spec-item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f8f9fc;
+  border: 1px solid #eef0f6;
+}
+
+.ds-spec-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #19289a;
+  letter-spacing: -0.02em;
+}
+
+.ds-spec-lbl {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #5a6280;
+}
+
+.ds-layout-demo {
+  border: 2px dashed #c7d4f0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f8f9fc;
+}
+
+.ds-layout-inner {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: #fff;
+  border: 1px solid #dde1ee;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #9aa0b4;
+  text-align: center;
+}
+
+/* ── 헤더 프리뷰 ── */
+.ds-header-preview {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e6f0;
+  max-width: 100%;
+}
+
+.ds-header-preview .header-inner,
+.ds-header-preview .main {
+  max-width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.ds-header-preview .main-list {
+  gap: 12px;
+  font-size: 12px;
+}
+
+.ds-header-preview header {
+  pointer-events: none;
+}
+
+.ds-header-preview .main-list a {
+  pointer-events: none;
+}
+
+/* ── 칩/배지 줄 ── */
+.ds-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ── 탭 데모 ── */
+.ds-tab-demo .tab-content {
+  min-height: 56px;
+  font-size: 13px;
+  color: #5a6280;
+}
+
+.ds-main > footer {
+  padding-top: 14px !important;
+  margin-top: 8px;
+}
+
+/* DS 페이지 내부 — 서비스용 min-width 덮어쓰기 */
+body.ds-body .ds-app .tab-nav {
+  min-width: 0 !important;
+}
+
+body.ds-body .ds-app .summary-row {
+  max-width: 100% !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+body.ds-body .ds-app .fc {
+  max-width: 100% !important;
+}
+
+body.ds-body .ds-layout-demo .ds-layout-inner {
+  display: grid !important;
+  grid-template-columns: 1fr 100px !important;
+  gap: 8px !important;
+  padding: 10px !important;
+  text-align: left !important;
+}
+
+body.ds-body .ds-layout-demo .ds-layout-inner > div:last-child {
+  width: auto !important;
+  padding: 12px !important;
+}

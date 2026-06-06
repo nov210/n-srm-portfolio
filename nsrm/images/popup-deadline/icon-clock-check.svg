@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="lucide/clock-check" clip-path="url(#clip0_0_8)">
+<path id="Vector" d="M9 4.5V9L12 10.5M16.5 9C16.5 7.54862 16.0788 6.12842 15.2877 4.91165C14.4965 3.69488 13.3692 2.73381 12.0427 2.14501C10.7161 1.5562 9.24716 1.36495 7.81404 1.59445C6.38092 1.82396 5.04518 2.46436 3.96881 3.43798C2.89245 4.4116 2.1217 5.67662 1.75005 7.07961C1.37841 8.4826 1.42182 9.96328 1.87504 11.3421C2.32825 12.7209 3.1718 13.9386 4.30336 14.8475C5.43492 15.7563 6.8059 16.3174 8.25 16.4625M16.5 12L12.375 16.125L10.5 14.25" stroke="var(--stroke-0, #D70000)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_0_8">
+<rect width="18" height="18" fill="white"/>
+</clipPath>
+</defs>
+</svg>

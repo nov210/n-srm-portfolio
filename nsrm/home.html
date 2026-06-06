@@ -1,0 +1,780 @@
+<!-- ★ 문서 시작: home.html 메인 대시보드 -->
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<!-- ★ HEAD: 문자셋, 화면 폭, CSS 파일을 연결하는 영역 -->
+<meta charset="utf-8"/>
+<meta content="width=1280" name="viewport"/>
+<title>N-SRM — 홈 대시보드</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<!-- ★ header.css: 상단 파란 헤더/GNB/서브메뉴 디자인 -->
+<!-- ★ common.css: reset/body 기본값을 통일해서 모든 페이지 헤더 위치를 맞춤 -->
+<link href="css/common.css?v=8" rel="stylesheet"/>
+<link href="css/header.css" rel="stylesheet"/>
+<!-- ★ main.css: 대시보드 본문, KPI 카드, 오른쪽 사이드 영역 디자인 -->
+<link href="css/main.css" rel="stylesheet"/>
+<!-- ★ portfolio.css: 포트폴리오 안내/팝업 디자인 -->
+<link href="css/portfolio.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ★ BODY: 실제 화면에 보이는 HTML 시작 -->
+<!-- ★ 헤더 자리: js/include.js가 header.html 내용을 여기로 불러옴 -->
+<div id="header"></div>
+<!-- ============================================================ -->
+<!-- ★ LAZY LAYER ROOT: 팝업/온보딩은 partials/*.html에서 클릭 시 로드 -->
+<!-- ============================================================ -->
+<div id="layerRoot"></div>
+
+<!-- ============================================================ -->
+<!-- ★ BODY 본문: 실제 대시보드 메인 화면 시작 -->
+<!-- ============================================================ -->
+<!-- ★ 전체 본문 레이아웃: 왼쪽 col-main + 오른쪽 col-side를 감싸는 부모 -->
+<div class="body">
+<!-- ★ 왼쪽 메인 컬럼: 인사말, KPI 카드, 업무 카드, 게시판, 환율, 퀵링크 -->
+<div class="col-main">
+<!-- ★ 인사말 영역: 사용자 이름/소속 표시 -->
+<div class="greet-row">
+<div class="greet-title">김철수님, 행복한 하루되세요.</div>
+<div class="greet-meta">
+   <span class="company-name">삼성전자(주)</span>
+   <span class="greet-dot">·</span>
+   <span>DS 부품구매팀</span>
+   <span class="greet-dot">·</span>
+   <span>김철수 책임</span>
+</div>
+</div>
+<!-- ★ KPI 카드 4개: 오늘 마감, 승인 대기, 보완 회신 대기, 신규 공지 -->
+<div class="kpi-grid">
+<!-- ★ KPI 1: 오늘 마감 강조 카드. 클릭하면 popDeadline 팝업 열림 -->
+<div class="kpi-card kpi-today hs-wrap is-clickable" data-popup-open="popDeadline" data-guide-target="today-deadline">
+<span class="hs hs-popup">
+<span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-9"></span>
+<span class="hs-tip">마감 업무 보기</span>
+</span>
+<div class="kpi-head">
+<div class="kpi-title-wrap">
+<div class="kpi-title">오늘 마감</div>
+<div class="kpi-dday">D-DAY</div>
+</div>
+<div class="kpi-icon-glass">
+<img alt="마감" height="28" src="images/db-icon-1.svg" width="28"/>
+</div>
+</div>
+<div class="kpi-num-row">
+<span class="kpi-num">4</span>
+<span class="kpi-unit kpi-unit-white-muted">건</span>
+</div>
+<div class="kpi-deadline">17:00전 처리 필요</div>
+<hr class="kpi-divider"/>
+<div class="kpi-sub">
+<span class="kpi-sub-item">평가 <span class="kpi-sub-num kpi-sub-num-today">2</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">승인 <span class="kpi-sub-num kpi-sub-num-today">1</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">검수 <span class="kpi-sub-num kpi-sub-num-today">2</span></span>
+</div>
+<div class="kpi-link">
+          바로가기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<!-- ★ KPI 2: 승인 대기 카드 -->
+<div class="kpi-card kpi-amber">
+<div class="kpi-head">
+<div class="kpi-title-wrap">
+<div class="kpi-title kpi-color-amber">승인 대기</div>
+</div>
+<div class="kpi-icon">
+<img alt="승인" height="36" src="images/db-icon-2.svg" width="36"/>
+</div>
+</div>
+<div class="kpi-num-row">
+<span class="kpi-num kpi-color-amber">12</span>
+<span class="kpi-unit">건</span>
+</div>
+<div class="kpi-card-spacer"></div>
+<hr class="kpi-divider"/>
+<div class="kpi-sub">
+<span class="kpi-sub-item">신규공급사 <span class="kpi-sub-num">3</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">견적 <span class="kpi-sub-num">6</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">계약 <span class="kpi-sub-num">3</span></span>
+</div>
+<div class="kpi-link">
+          바로가기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<!-- ★ KPI 3: 보완 회신 대기 카드 -->
+<div class="kpi-card kpi-green">
+<div class="kpi-head">
+<div class="kpi-title-wrap">
+<div class="kpi-title kpi-color-green">보완 회신 대기</div>
+</div>
+<div class="kpi-icon">
+<img alt="보완회신" height="36" src="images/db-icon-3.svg" width="36"/>
+</div>
+</div>
+<div class="kpi-num-row">
+<span class="kpi-num kpi-color-green">2</span>
+<span class="kpi-unit">건</span>
+</div>
+<div class="kpi-card-spacer"></div>
+<hr class="kpi-divider"/>
+<div class="kpi-sub">
+<span class="kpi-sub-item">등록 <span class="kpi-sub-num">1</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">계약 <span class="kpi-sub-num">1</span></span>
+</div>
+<div class="kpi-link">
+          바로가기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<!-- ★ KPI 4: 신규 공지 카드 -->
+<div class="kpi-card kpi-purple">
+<div class="kpi-head">
+<div class="kpi-title-wrap">
+<div class="kpi-title kpi-color-purple">신규 공지</div>
+</div>
+<div class="kpi-icon">
+  <img src="images/db-icon-4.svg" alt="신규 공지">
+</div>
+</div>
+<div class="kpi-num-row">
+<span class="kpi-num kpi-color-purple">5</span>
+<span class="kpi-unit">건</span>
+</div>
+<div class="kpi-card-spacer"></div>
+<hr class="kpi-divider"/>
+<div class="kpi-sub">
+<span class="kpi-sub-item">필수 <span class="kpi-sub-num">2</span></span>
+<span class="kpi-sub-sep">|</span>
+<span class="kpi-sub-item">일반 <span class="kpi-sub-num">3</span></span>
+</div>
+<div class="kpi-link">
+          바로가기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+</div><!-- //kpi-grid -->
+<!-- ★ 자주 쓰는 업무: 탭과 업무 카드 목록 -->
+<div class="section-card">
+<div class="section-head">
+<div class="section-title">자주 쓰는 업무</div>
+<div class="section-desc">최근 사용 및 내 권한 기준으로 정렬됩니다.</div>
+</div>
+<div class="tab-group">
+<div class="tab-btn on" data-action="switch-tab">
+          진행 중 업무 <span class="tab-count">6</span>
+</div>
+<div class="tab-btn" data-action="switch-tab">최근 사용</div>
+<div class="tab-btn" data-action="switch-tab">즐겨찾기</div>
+<div class="tab-btn" data-action="switch-tab">추천</div>
+<div class="tab-right">
+<div class="tab-edit-btn">
+<span aria-hidden="true" class="svg-icon icon-edit icon-size-13"></span>
+            편집
+          </div>
+</div>
+</div>
+<div class="work-grid">
+<div class="work-card">
+<div class="work-card-top">
+<span class="ws-bdg ws-red">견적 작성중</span>
+<span class="work-id">DS-2025-0412</span>
+</div>
+<div class="work-title">반도체 부품 견적 — 메모리 모듈 32GB</div>
+<div>
+<div class="work-meta">D-2 마감 · 5월 28일까지</div>
+<div class="work-progress"><div class="work-progress-fill progress-fill-quote"></div></div>
+</div>
+<div class="work-action">
+            이어서 작성
+            <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<div class="work-card">
+<div class="work-card-top">
+<span class="ws-bdg ws-amber">계약 검토 중</span>
+<span class="work-id">DS-2025-0398</span>
+</div>
+<div class="work-title">화학소재 외 3건 — 연간 단가 계약</div>
+<div>
+<div class="work-meta">검토 75% · 임원 승인 단계</div>
+<div class="work-progress"><div class="work-progress-fill progress-fill-contract"></div></div>
+</div>
+<div class="work-action">
+            이어서 작성
+            <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<div class="work-card hs-wrap is-clickable" data-popup-open="popSurvey" data-guide-target="survey-progress">
+<span class="hs hs-popup hotspot-survey">
+<span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-9"></span>
+<span class="hs-tip">설문 응답</span>
+</span>
+<div class="work-card-top">
+<span class="ws-bdg ws-blue">설문 응답 중</span>
+<span class="work-id">SV-2025-H1</span>
+</div>
+<div class="work-title">2025 상반기 협력사 만족도 조사</div>
+<div>
+<div class="work-meta">12 / 24 문항 · 오늘 17:00 마감</div>
+<div class="work-progress"><div class="work-progress-fill progress-fill-survey"></div></div>
+</div>
+<div class="work-action">
+            이어서 응답
+            <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<div class="work-card">
+<div class="work-card-top">
+<span class="ws-bdg ws-purple">서류 보완</span>
+<span class="work-id">REG-25-0231</span>
+</div>
+<div class="work-title">신규 공급사 ABC Tech 등록 — 서류 반려</div>
+<div>
+<div class="work-meta">사업자등록증 재제출 필요</div>
+<div class="work-progress"><div class="work-progress-fill progress-fill-doc"></div></div>
+</div>
+<div class="work-action">
+            보완하기
+            <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+</div>
+</div><!-- //자주 쓰는 업무 -->
+<!-- ★ 필수 공지/게시판: 공지 리스트 영역 -->
+<div class="section-card">
+<div class="board-title-row">
+<div class="section-title">필수 공지/게시판</div>
+</div>
+<div class="board-tab-group">
+<div class="btab on" data-action="switch-btab">전체 <span class="btab-count">12</span></div>
+<div class="btab btab-urgent" data-action="switch-btab">
+<span class="btab-dot"></span>
+          긴급 <span class="btab-count badge-red-soft">3</span>
+</div>
+<div class="btab" data-action="switch-btab">필수 <span class="btab-count">5</span></div>
+<div class="board-viewall">
+          전체보기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-12"></span>
+</div>
+</div>
+<div class="board-list">
+<div class="bli urgent">
+<span class="bli-bdg bdg-필수">필수</span>
+<span class="bli-title">[긴급] 2025 상반기 협력사 설문 — 미참여 시 평가 반영</span>
+<span class="bli-status s-urgent">오늘 17:00 마감</span>
+<span class="bli-author">파트너십팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+<div class="bli urgent">
+<span class="bli-bdg bdg-필수">필수</span>
+<span class="bli-title">[긴급] 신규 공급사 ABC Tech 등록서류 반려 — 보완 필요</span>
+<span class="bli-status s-pending">미확인</span>
+<span class="bli-author">구매시스템팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+<div class="bli urgent">
+<span class="bli-bdg bdg-장애">장애</span>
+<span class="bli-title">[긴급] Smart Daily News 접속 지연 — 오늘 22:00~23:00 점검 예정</span>
+<span class="bli-status s-progress">처리중</span>
+<span class="bli-author">구매시스템팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+<div class="bli">
+<span class="bli-bdg bdg-필수">필수</span>
+<span class="bli-title">[필수] 시스템 정기 점검 안내</span>
+<span class="bli-status">오늘 22:00 적용</span>
+<span class="bli-author">파트너십팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+<div class="bli">
+<span class="bli-bdg bdg-정책">정책</span>
+<span class="bli-title">[정책] Cost Management 교육 영상 배포 안내</span>
+<span class="bli-status">-</span>
+<span class="bli-author">파트너십팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+<div class="bli">
+<span class="bli-bdg bdg-뉴스레터">뉴스레터</span>
+<span class="bli-title">5월 N-SRM 뉴스레터 — 이번 달 주요 정책 변경 사항</span>
+<span class="bli-status">-</span>
+<span class="bli-author">파트너십팀</span>
+<span class="bli-date">2025.05.28 10:00</span>
+</div>
+<div class="bli">
+<span class="bli-bdg bdg-일반">일반</span>
+<span class="bli-title">[일반] 2025년 상반기 협력사 VOC 만족도 조사</span>
+<span class="bli-status">-</span>
+<span class="bli-author">파트너십팀</span>
+<span class="bli-date">2025.05.30 09:00</span>
+</div>
+</div>
+</div><!-- //게시판 -->
+<!-- ★ 환율 영역: 통화별 환율 롤링 리스트 -->
+<div class="fx-section">
+  <div class="fx-head">
+    <div class="fx-title">$ 환율</div>
+    <div class="fx-date">2025.06.01 · 하나은행 일일 최고고시</div>
+  </div>
+
+  <div class="fx-divider"></div>
+
+  <div class="fx-wrap">
+    <div class="fx-track" id="fxTrack">
+
+      <!-- 1세트 -->
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-jp.png" alt="일본 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">JPY 100</div>
+          <div class="fx-ccy-sub">일본 엔</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">939.54</span>
+          <span class="fx-chg fx-down">▼ 0.058</span>
+          <span class="fx-pct">1.24%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-us.png" alt="미국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">USD</div>
+          <div class="fx-ccy-sub">미국 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,358.20</span>
+          <span class="fx-chg fx-up">▲ 3.40</span>
+          <span class="fx-pct badge-red-soft">0.25%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-eu.png" alt="유럽연합 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">EUR</div>
+          <div class="fx-ccy-sub">유로</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,476.30</span>
+          <span class="fx-chg fx-down">▼ 2.10</span>
+          <span class="fx-pct">0.14%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-cn.png" alt="중국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">CNY</div>
+          <div class="fx-ccy-sub">중국 위안</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">187.45</span>
+          <span class="fx-chg fx-down">▼ 0.32</span>
+          <span class="fx-pct">0.17%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-gb.png" alt="영국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">GBP</div>
+          <div class="fx-ccy-sub">영국 파운드</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,732.80</span>
+          <span class="fx-chg fx-up">▲ 4.20</span>
+          <span class="fx-pct badge-red-soft">0.24%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-au.png" alt="호주 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">AUD</div>
+          <div class="fx-ccy-sub">호주 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">902.15</span>
+          <span class="fx-chg fx-down">▼ 1.85</span>
+          <span class="fx-pct">0.20%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-ca.png" alt="캐나다 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">CAD</div>
+          <div class="fx-ccy-sub">캐나다 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">995.60</span>
+          <span class="fx-chg fx-up">▲ 2.10</span>
+          <span class="fx-pct badge-red-soft">0.21%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-vn.png" alt="베트남 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">VND 100</div>
+          <div class="fx-ccy-sub">베트남 동</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">5.34</span>
+          <span class="fx-chg fx-down">▼ 0.01</span>
+          <span class="fx-pct">0.19%</span>
+        </div>
+      </div>
+
+      <!-- 2세트: 롤링용 복사본 -->
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-jp.png" alt="일본 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">JPY 100</div>
+          <div class="fx-ccy-sub">일본 엔</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">939.54</span>
+          <span class="fx-chg fx-down">▼ 0.058</span>
+          <span class="fx-pct">1.24%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-us.png" alt="미국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">USD</div>
+          <div class="fx-ccy-sub">미국 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,358.20</span>
+          <span class="fx-chg fx-up">▲ 3.40</span>
+          <span class="fx-pct badge-red-soft">0.25%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-eu.png" alt="유럽연합 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">EUR</div>
+          <div class="fx-ccy-sub">유로</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,476.30</span>
+          <span class="fx-chg fx-down">▼ 2.10</span>
+          <span class="fx-pct">0.14%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-cn.png" alt="중국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">CNY</div>
+          <div class="fx-ccy-sub">중국 위안</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">187.45</span>
+          <span class="fx-chg fx-down">▼ 0.32</span>
+          <span class="fx-pct">0.17%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-gb.png" alt="영국 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">GBP</div>
+          <div class="fx-ccy-sub">영국 파운드</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">1,732.80</span>
+          <span class="fx-chg fx-up">▲ 4.20</span>
+          <span class="fx-pct badge-red-soft">0.24%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-au.png" alt="호주 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">AUD</div>
+          <div class="fx-ccy-sub">호주 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">902.15</span>
+          <span class="fx-chg fx-down">▼ 1.85</span>
+          <span class="fx-pct">0.20%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-ca.png" alt="캐나다 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">CAD</div>
+          <div class="fx-ccy-sub">캐나다 달러</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">995.60</span>
+          <span class="fx-chg fx-up">▲ 2.10</span>
+          <span class="fx-pct badge-red-soft">0.21%</span>
+        </div>
+      </div>
+
+      <div class="fx-item">
+        <div class="fx-flag">
+          <img src="images/flag-vn.png" alt="베트남 국기">
+        </div>
+        <div class="fx-ccy-wrap">
+          <div class="fx-ccy-name">VND 100</div>
+          <div class="fx-ccy-sub">베트남 동</div>
+        </div>
+        <div class="fx-val-wrap">
+          <span class="fx-val">5.34</span>
+          <span class="fx-chg fx-down">▼ 0.01</span>
+          <span class="fx-pct">0.19%</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ★ 정책/가이드 + Quick Links: 자주 쓰는 외부/내부 링크 모음 -->
+<div class="policy-bar">
+<div class="policy-section">
+<div class="policy-label">
+          정책/가이드 <span class="policy-q">?</span>
+</div>
+<a class="policy-link">Partnership Management <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-10"></span></a>
+<a class="policy-link">Procurement Policy <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-10"></span></a>
+<a class="policy-link">Quick Guide <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-10"></span></a>
+<a class="policy-link">Quick VoC <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-10"></span></a>
+</div>
+<div class="policy-divider"></div>
+<div class="quicklink-section">
+<div class="quicklink-label">Quick Links</div>
+<a class="quicklink">삼성협력포털</a>
+<a class="quicklink">CPCex</a>
+<a class="quicklink">ToolMate</a>
+<a class="quicklink">TN Portal</a>
+<a class="quicklink">Manual</a>
+</div>
+</div>
+</div><!-- //col-main -->
+<!-- ★ 오른쪽 사이드 컬럼: 화면 오른쪽 회색 영역 전체 -->
+<div class="col-side">
+<!-- ★ 여기부터 스크린샷의 오른쪽 회색 영역에 들어가는 카드들 -->
+<!-- ★ 오른쪽 카드 1: 오늘의 콘텐츠. 클릭하면 popContent 팝업 열림 -->
+<div class="side-card-white hs-wrap content-card-clickable" data-popup-open="popContent" data-guide-target="today-content">
+<span class="hs hs-popup hotspot-content">
+<span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-9"></span>
+<span class="hs-tip hotspot-tip-top">스토리 보기</span>
+</span>
+<div class="content-side-heading">오늘의 컨텐츠</div>
+<div class="content-thumbnail"><img src="images/webtoon_img.png" alt="N-SRM은 어떻게 탄생했나"></div>
+<div class="side-card-body">
+<div class="content-side-title">"N-SRM은 어떻게 탄생했나"</div>
+<div class="content-side-desc">단순한 시스템 교체가 아니었습니다. 협력사 관계의 패러다임을 바꾼 N-SRM 구축 프로젝트의 전말을 재미있게 정리했습니다.</div>
+<div class="content-side-link">
+          바로보기
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-11"></span>
+</div>
+</div>
+</div>
+<!-- ★ 오른쪽 카드 2: 이번주 일정/캘린더 -->
+<div class="side-card-white calendar-card">
+  <div class="calendar-head-row">
+    <div class="calendar-heading">
+      <img src="images/d-calendar.svg" alt="" class="calendar-title-icon">
+      이번주 일정
+    </div>
+
+    <div class="calendar-month-select">
+      5월
+      <img src="images/d-calendar-d.svg" alt="" class="calendar-select-icon">
+    </div>
+  </div>
+
+  <!-- ★ 캘린더 날짜 영역 -->
+  <div class="side-card-body">
+    <div class="cal-grid">
+      <div class="cal-dow text-red">Sun</div>
+      <div class="cal-dow">Mon</div>
+      <div class="cal-dow">Tue</div>
+      <div class="cal-dow">Wed</div>
+      <div class="cal-dow">Thu</div>
+      <div class="cal-dow">Fri</div>
+      <div class="cal-dow text-blue">Sat</div>
+
+      <div class="cal-day other">26</div>
+      <div class="cal-day other">27</div>
+      <div class="cal-day other">28</div>
+      <div class="cal-day other">29</div>
+      <div class="cal-day other">30</div>
+      <div class="cal-day highlight-sm">1</div>
+      <div class="cal-day text-gray-555">2</div>
+
+      <div class="cal-day text-red">3</div>
+      <div class="cal-day text-gray-555">4</div>
+      <div class="cal-day text-red">5</div>
+      <div class="cal-day text-gray-555">6</div>
+      <div class="cal-day text-gray-555">7</div>
+      <div class="cal-day highlight-sm">8</div>
+      <div class="cal-day text-gray-555">9</div>
+
+      <div class="cal-day text-red">10</div>
+      <div class="cal-day text-gray-555">11</div>
+      <div class="cal-day highlight">12</div>
+      <div class="cal-day text-gray-555">13</div>
+      <div class="cal-day highlight">14</div>
+      <div class="cal-day text-gray-555">15</div>
+      <div class="cal-day text-gray-555">16</div>
+
+      <div class="cal-day text-red">17</div>
+      <div class="cal-day text-gray-555">18</div>
+      <div class="cal-day text-gray-555">19</div>
+      <div class="cal-day text-gray-555">20</div>
+      <div class="cal-day text-gray-555">21</div>
+      <div class="cal-day highlight-red">22</div>
+      <div class="cal-day text-gray-555">23</div>
+
+      <div class="cal-day text-red">24</div>
+      <div class="cal-day text-gray-555">25</div>
+      <div class="cal-day highlight-purple">26</div>
+      <div class="cal-day text-gray-555">27</div>
+      <div class="cal-day highlight">28</div>
+      <div class="cal-day text-gray-555">29</div>
+      <div class="cal-day today">30</div>
+    </div>
+  </div>
+
+  <!-- ★ 캘린더 아래 일정 리스트 -->
+  <div class="calendar-schedule-list">
+    <div class="schedule-item-urgent">
+      <div class="schedule-info-row">
+        <span class="schedule-time-red">오늘 17:00</span>
+        <span class="schedule-title">2025 상반기 협력사 설문 마감</span>
+      </div>
+      <span class="schedule-badge-urgent">긴급</span>
+    </div>
+
+    <div class="schedule-item-normal">
+      <div class="schedule-info-row">
+        <span class="schedule-time-gray">월 18:00</span>
+        <span class="schedule-title">2025 상반기 협력사 설문 마감</span>
+      </div>
+      <span class="schedule-badge-deadline">마감</span>
+    </div>
+  </div>
+
+  <div class="calendar-more-link">
+    전체보기
+    <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-11"></span>
+  </div>
+</div>
+<!-- //오른쪽 카드 2 -->
+<!-- ★ 오른쪽 카드 3: 신규 협력 제안 카드 2개 -->
+<!-- ★ 신규 협력 제안 카드 2개를 감싸는 박스 -->
+<div class="proposal-grid">
+<!-- ★ 신규 협력 제안 카드 1개 -->
+<!-- ★ 신규 협력 제안 카드 1개 -->
+<div class="proposal-card">
+<div class="proposal-icon proposal-icon-idea">
+<img src="images/d-lightbulb.svg" alt="">
+</div>
+<div class="proposal-title">신규 협력 제안</div>
+<div class="proposal-desc">협력사 제안 평가 및 검토</div>
+<div class="proposal-count">
+<span class="proposal-num proposal-num-blue">12</span>
+<span class="proposal-status">검토대기</span>
+</div>
+<div class="proposal-link proposal-link-blue">
+        
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-9"></span>
+</div>
+</div>
+<div class="proposal-card">
+<div class="proposal-icon proposal-icon-mail">
+<img src="images/d-mail.svg" alt="">
+</div>
+<div class="proposal-title">신규 협력 제안</div>
+<div class="proposal-desc">협력사 불편사항</div>
+<div class="proposal-count">
+<span class="proposal-num proposal-num-purple">3</span>
+<span class="proposal-status">처리중</span>
+</div>
+<div class="proposal-link proposal-link-purple">
+      
+          <span aria-hidden="true" class="svg-icon icon-arrow-right icon-size-9"></span>
+</div>
+</div>
+</div>
+<!-- ★ 오른쪽 카드 4: 협력사 지원센터 연락처 카드 -->
+<div class="support-center-card">
+<div class="support-center-title">
+<img alt="" height="14" src="images/d-phone.svg" width="14"/>
+        협력사 지원센터
+      </div>
+<div class="support-center-phone">1800-3131</div>
+<div class="support-center-hours">평일 09:00 ~ 18:00</div>
+<div class="support-center-divider"></div>
+<div class="support-center-email">
+<img alt="" height="10" src="images/d-f-mail.svg" width="10"/>
+        supplier-help@samsung.com
+      </div>
+<div class="support-center-chat">
+<span aria-hidden="true" class="svg-icon icon-chat icon-size-10"></span>
+        1:1 채팅 (협력사 안내용)
+      </div>
+</div>
+</div><!-- //col-side -->
+</div><!-- //body -->
+<!-- 가이드 호버 시 전체 딤 + 대상만 위로 올림 -->
+<div id="guideSpotlightBg" class="guide-spotlight-bg" aria-hidden="true"></div>
+<div class="login-demo-cursor is-hidden" id="loginDemoCursor" aria-hidden="true">
+  <span class="login-cursor-ibeam" id="loginCursorText"></span>
+  <img src="images/pointer.png" alt="" class="login-cursor-pointer" id="loginCursorPointer" />
+</div>
+<!-- ★ include.js: header.html을 #header 영역에 넣는 JS -->
+<script src="js/demo-control.js?v=8"></script>
+<script src="js/include.js"></script>
+<!-- ★ main.js: 팝업 열기/닫기, 탭 전환 같은 동작 담당 -->
+<script src="js/main.js?v=8"></script>
+<script src="js/demo-replay.js?v=8"></script>
+<!-- ★ BODY 끝 -->
+</body>
+</html>
