@@ -40,6 +40,7 @@ ul{list-style:none;padding:0}
   --pp:#7c3aed;
   --r:12px;
   --rl:20px;
+  --sec-pt:92px;
 }
 
 /* ── 컨테이너 ── */
@@ -119,7 +120,7 @@ ul{list-style:none;padding:0}
 /* ════════════════════════════════════════
    SEC 2 — PROJECT OVERVIEW
    ════════════════════════════════════════ */
-.po{padding:85px 0;background:var(--bg)}
+.po{padding:var(--sec-pt) 0;background:var(--bg)}
 .po-box{
   position:relative;
   width:1252px;
@@ -214,29 +215,30 @@ ul{list-style:none;padding:0}
 /* ════════════════════════════════════════
    SEC 3 — BA 타이틀 + 브라우저 목업
    ════════════════════════════════════════ */
-.pb{padding:92px 0 0;background:#e9edf7}
+.pb{padding:var(--sec-pt) 0 0;background:#e9edf7}
 .pb-hd{text-align:center;margin-bottom:48px}
 .pb-t{
+  margin:0;
   font-size:42px;
   font-weight:800;
   letter-spacing:-0.56px;
-  line-height:1.4;
+  line-height:1.25;
   color:#1A1E2E;
 }
 .pb-sub{
+  margin:0 0 12px;
   font-size:42px;
   font-weight:800;
   letter-spacing:-0.56px;
-  line-height:1.4;
+  line-height:1.25;
   color:#444;
-  margin-bottom:20px;
 }
 .pb-d{
+  margin:0 auto;
   font-size:14px;
   color:#777;
   line-height:1.5;
   max-width:755px;
-  margin:0 auto;
 }
 
 /* dashboard22 — 맥 프레임 + compareViewport */
@@ -355,7 +357,7 @@ ul{list-style:none;padding:0}
    ════════════════════════════════════════ */
 .uj{
   min-height:auto;
-  padding:80px 0 100px;
+  padding:calc(var(--sec-pt) - 48px) 0 100px;
   background:#e9edf7;
 }
 
@@ -773,7 +775,7 @@ ul{list-style:none;padding:0}
 .md{
   min-height:800px;
   overflow:visible;
-  padding-top:80px;
+  padding-top:var(--sec-pt);
   padding-bottom:80px;
   background:var(--bg);
 }
@@ -788,7 +790,7 @@ ul{list-style:none;padding:0}
 /* ── 왼쪽 텍스트 ── */
 .md-txt{
   position:absolute;
-  left:0;top:10px;
+  left:0;top:0;
   width:347px;
 }
 .md-title{
@@ -950,7 +952,7 @@ ul{list-style:none;padding:0}
 /* ════════════════════════════════════════
    SEC 4.7 — SUPPLIER STEPS
    ════════════════════════════════════════ */
-.sp{padding:100px 0 80px;background:var(--bg)}
+.sp{padding:var(--sec-pt) 0 80px;background:var(--bg)}
 
 .sp-hd{text-align:center;margin-bottom:64px}
 .sp-title{
@@ -1102,7 +1104,7 @@ ul{list-style:none;padding:0}
 /* ════════════════════════════════════════
    SEC 4.8 — DESIGN SYSTEM
    ════════════════════════════════════════ */
-.ds{padding:92px 0 80px;background:#f5f5f7}
+.ds{padding:var(--sec-pt) 0 80px;background:#f5f5f7}
 
 .ds-hd{text-align:center;margin-bottom:48px}
 .ds-title{
@@ -1164,17 +1166,13 @@ ul{list-style:none;padding:0}
   align-items:center;
   justify-content:center;
   gap:16px;
-  width:320px;
-  min-height:50px;
-  max-height:52px;
-  padding:0 16px;
+  padding:20px 52px;
   border:1px solid #111a6a;
   border-radius:8px;
   background:#fff;
   color:#111a6a;
   font-size:20px;
   font-weight:700;
-  line-height:1.5;
   text-decoration:none;
   box-shadow:4px 4px 2px rgba(0,0,0,.13);
   transition:background .2s,color .2s,transform .2s;
@@ -1184,6 +1182,7 @@ ul{list-style:none;padding:0}
   color:#fff;
   transform:translateY(-2px);
 }
+.ds-btn span{line-height:1}
 .ds-btn img{flex-shrink:0;display:block}
 
 
@@ -1191,7 +1190,7 @@ ul{list-style:none;padding:0}
    SEC 5 — LIVE DEMO
    ════════════════════════════════════════ */
 .demo-sec{
-  padding:92px 0;
+  padding:var(--sec-pt) 0;
   background:#d5dae6;
 }
 .demo-wrap{
@@ -1274,7 +1273,7 @@ ul{list-style:none;padding:0}
    SEC 6 — PROJECT COMMUNICATION
    ════════════════════════════════════════ */
 .pc{
-  padding:92px 0 0;
+  padding:var(--sec-pt) 0 0;
   background:#17192b;
   overflow:hidden;
 }
@@ -1344,7 +1343,7 @@ ul{list-style:none;padding:0}
 /* ════════════════════════════════════════
    SEC 2.5 — KEY DESIGN DECISIONS
    ════════════════════════════════════════ */
-.dd{padding:92px 0 100px;background:#D9E0F1}
+.dd{padding:var(--sec-pt) 0 100px;background:#D9E0F1}
 
 .dd-hd{text-align:center;margin-bottom:48px}
 .dd-title{
@@ -1453,7 +1452,7 @@ ul{list-style:none;padding:0}
    SEC 7 — IMPACT
    ════════════════════════════════════════ */
 .imp{
-  padding:100px 0;
+  padding:var(--sec-pt) 0;
   background:var(--navy-deep);
 }
 .imp-hd{
